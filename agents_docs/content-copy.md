@@ -230,7 +230,7 @@ Revenue on the Table?
 **Primary CTA:** "Get Your Free Ecommerce Audit"
 
 **Micro-trust row:**
-"⚡ Response within 4 hours  ·  🇮🇳 India-focused expertise  ·  📊 No vanity metrics, only revenue"
+"⚡ Response within 24 hours  ·  🇮🇳 India-focused expertise  ·  📊 No vanity metrics, only revenue"
 
 ---
 
@@ -280,7 +280,7 @@ We built Ecom Orbit to be the team that owns all of it — store, marketing, mar
 
 **Headline:** "Tell Us What's Not Working. We'll Tell You Why."
 
-**Subheadline:** "Fill this out, or email us directly — we respond within 4 hours."
+**Subheadline:** "Fill this out, or email us directly — we respond within 24 hours."
 
 **Form field labels:**
 - Name
@@ -291,10 +291,10 @@ We built Ecom Orbit to be the team that owns all of it — store, marketing, mar
 
 **Submit button:** "Send & Get Your Free Audit"
 
-**Trust signal near submit:** "We respond within 4 hours (Mon–Sat, 10am–7pm IST)"
+**Trust signal near submit:** "We respond within 24 hours (Mon–Sat, 10am–7pm IST)"
 
 **Alongside-form panel headline:** "Prefer to just talk?"
-**Alongside-form panel body:** "Email us directly and we'll get back to you within 4 hours." (No Calendly embed — removed until a real booking link exists; see brand-context.md "Live Status & Contact Facts.")
+**Alongside-form panel body:** "Email us directly and we'll get back to you within 24 hours." (No Calendly embed — removed until a real booking link exists; see brand-context.md "Live Status & Contact Facts.")
 
 **Error state copy (orange, not red):** "That doesn't look right — mind checking this field?"
 
@@ -550,5 +550,5 @@ Applies to `/blog/[slug]`. Short, India-ecommerce-specific posts in the establis
 | Case Studies (index) | "Ecommerce Case Studies India \| Real Growth Results \| Ecom Orbit" | "Real revenue results from Indian ecommerce brands across fashion, beauty, food & quick commerce." |
 | About | "About Ecom Orbit \| India's 7-Channel Ecommerce Agency" | "Why Ecom Orbit exists, what we believe, and how we run every channel — store, ads, marketplaces, quick commerce & logistics — under one team." |
 | Blog (index) | "Ecommerce Blog India \| Ecom Orbit" | "Practical, India-specific ecommerce guidance on RTO, quick commerce, marketplaces & online growth." |
-| Contact | "Contact Ecom Orbit \| Free Ecommerce Consultation India" | "Book a free ecommerce audit. Email or call — we respond within 4 hours." |
+| Contact | "Contact Ecom Orbit \| Free Ecommerce Consultation India" | "Book a free ecommerce audit. Email or call — we respond within 24 hours." |
 | Free Audit | "Free Ecommerce Audit India \| Ecom Orbit" | "Get a free, no-obligation audit of your store, ad accounts, marketplace listings & logistics setup within 48 hours." |

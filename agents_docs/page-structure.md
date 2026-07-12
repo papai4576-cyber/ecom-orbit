@@ -118,7 +118,7 @@ Each service page (`/services/[slug]`) follows:
 
 - Form fields: Name, Email, Phone, Monthly Revenue (dropdown: Pre-launch / Under ₹5L / ₹5L–₹25L / ₹25L–₹1Cr / ₹1Cr+), Message
 - Alongside form: WhatsApp CTA + direct email + Calendly embed for 30-min calls
-- Trust signal near submit: "We respond within 4 hours (Mon–Sat, 10am–7pm IST)"
+- Trust signal near submit: "We respond within 24 hours (Mon–Sat, 10am–7pm IST)"
 - No form validation errors in red — use orange (#FF6B2B) for error states
 
 ---

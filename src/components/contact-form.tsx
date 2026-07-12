@@ -60,7 +60,7 @@ export function ContactForm() {
           Got it — thanks!
         </h3>
         <p className="text-[14px]" style={{ color: "#8B9CC8" }}>
-          We respond within 4 hours (Mon–Sat, 10am–7pm IST).
+          We respond within 24 hours (Mon–Sat, 10am–7pm IST).
         </p>
       </div>
     );
@@ -159,7 +159,7 @@ export function ContactForm() {
       )}
 
       <p className="text-[12px] text-center" style={{ color: "#4A5A7A" }}>
-        We respond within 4 hours (Mon–Sat, 10am–7pm IST)
+        We respond within 24 hours (Mon–Sat, 10am–7pm IST)
       </p>
     </form>
   );

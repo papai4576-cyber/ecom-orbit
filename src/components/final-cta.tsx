@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const trustItems = [
-  { icon: "⚡", label: "Response within 4 hours" },
+  { icon: "⚡", label: "Response within 24 hours" },
   { icon: "🇮🇳", label: "India-focused expertise" },
   { icon: "📊", label: "No vanity metrics, only revenue" },
 ];

@@ -52,7 +52,7 @@ const tiers = [
       "Logistics & COD optimization",
       "Weekly strategy calls",
       "Real-time dashboard access",
-      "Priority support (4-hour response)",
+      "Priority support (24-hour response)",
     ],
     cta: "Let's Build Your Orbit",
     popular: false,

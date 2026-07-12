@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
   title: "Contact Ecom Orbit | Free Ecommerce Consultation India",
-  description: "Book a free ecommerce audit. Email or call — we respond within 4 hours.",
+  description: "Book a free ecommerce audit. Email or call — we respond within 24 hours.",
 };
 
 export default function ContactPage() {
@@ -15,7 +15,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="LET'S TALK REVENUE"
         headline="Tell Us What's Not Working. We'll Tell You Why."
-        subheadline="Fill this out, or email us directly — we respond within 4 hours."
+        subheadline="Fill this out, or email us directly — we respond within 24 hours."
       />
       <section className="section" style={{ background: "#0A0E1A" }}>
         <div className="container mx-auto px-6 grid lg:grid-cols-[1.2fr_1fr] gap-10 max-w-4xl">
@@ -29,7 +29,7 @@ export default function ContactPage() {
                   Prefer to just talk?
                 </h3>
                 <p className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>
-                  Email us directly and we&apos;ll get back to you within 4 hours.
+                  Email us directly and we&apos;ll get back to you within 24 hours.
                 </p>
               </div>
               <div className="flex flex-col gap-1">

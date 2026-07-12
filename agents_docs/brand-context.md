@@ -26,6 +26,7 @@ A full-service Indian ecommerce agency. **7 channels, one team:**
 
 - **Live domain:** ecomorbit.in / www.ecomorbit.in (production, deployed on Vercel)
 - **Contact email:** connect@ecomorbit.in (footer, `/contact` page)
+- **Response time:** 24 hours (changed from a previously-stated 4 hours, which was unrealistic for a 2-founder team) — this is the number to use anywhere response time is mentioned (contact page, form trust signals, final CTA trust row, pricing tier support line, meta descriptions).
 - **Contact form:** submissions POST to a Google Apps Script webhook (`GOOGLE_SHEETS_WEBHOOK_URL` env var) that appends rows to a Google Sheet — no email/CRM delivery wired up yet
 - **WhatsApp CTA:** disabled site-wide (floating button, nav icon, footer pill, CTA buttons all removed) — re-enable only with a real business WhatsApp number
 - **Case Studies:** `/case-studies` pages, homepage case-studies section, and founder testimonials are removed site-wide — the prior client stories were placeholder/fabricated, not real. Case-study copy elsewhere in this doc is a template for when real data is available, not live content.
