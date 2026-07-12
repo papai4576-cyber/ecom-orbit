@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 
 const trustItems = [
   { icon: "⚡", label: "Response within 4 hours" },
-  { icon: "📱", label: "WhatsApp-first communication" },
   { icon: "🇮🇳", label: "India-focused expertise" },
   { icon: "📊", label: "No vanity metrics, only revenue" },
 ];
@@ -72,15 +71,6 @@ export function FinalCta() {
             <Link href="/contact" className="btn-primary text-[16px]">
               Get Your Free Ecommerce Audit <ArrowRight size={18} />
             </Link>
-            <a
-              href="https://wa.me/919999999999?text=Hi%2C%20I%27d%20like%20a%20free%20ecommerce%20audit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary text-[16px]"
-              style={{ borderColor: "#25D366", color: "#25D366" }}
-            >
-              Chat on WhatsApp →
-            </a>
           </div>
 
           {/* Trust row */}

@@ -24,11 +24,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ecom Orbit | Ecommerce Agency India for D2C & Retail Brands",
+  metadataBase: new URL("https://ecomorbit.in"),
+  title: {
+    default: "Ecom Orbit | Ecommerce Agency India for Online & Offline Brands",
+    template: "%s",
+  },
   description:
-    "India's full-service ecommerce agency. Shopify/WooCommerce store setup, performance marketing, SEO, marketplace management & quick commerce for D2C brands.",
+    "India's full-service ecommerce agency. Store setup, performance marketing, SEO, marketplace management & quick commerce — for online brands and offline retailers going digital.",
   keywords:
-    "ecommerce agency india, D2C brand, shopify agency, amazon management, blinkit agency, quick commerce india",
+    "ecommerce agency india, shopify agency, woocommerce agency, amazon management, blinkit agency, quick commerce india, offline to online retail",
+  openGraph: {
+    title: "Ecom Orbit | Ecommerce Agency India for Online & Offline Brands",
+    description:
+      "India's full-service ecommerce agency. Store setup, performance marketing, SEO, marketplace management & quick commerce — for online brands and offline retailers going digital.",
+    siteName: "Ecom Orbit",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

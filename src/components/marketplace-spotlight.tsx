@@ -104,7 +104,7 @@ export function MarketplaceSpotlight() {
             </h2>
             <p className="text-[15px] leading-relaxed reveal" style={{ color: "#8B9CC8" }}>
               There&apos;s a difference between being listed on Amazon and{" "}
-              <strong style={{ color: "#F0F4FF" }}>winning on Amazon</strong>. Most D2C brands treat
+              <strong style={{ color: "#F0F4FF" }}>winning on Amazon</strong>. Most brands treat
               marketplaces as an afterthought. Ecom Orbit treats them as revenue engines.
             </p>
 

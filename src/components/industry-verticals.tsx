@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 
 const industries = [
   {
@@ -60,51 +60,27 @@ const industries = [
 ];
 
 export function IndustryVerticals() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="section"
-      style={{ background: "#0A0E1A" }}
-    >
+    <section className="section" style={{ background: "#0A0E1A" }}>
       <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center gap-4 mb-14">
-          <span className="eyebrow reveal">We Go Deep on Three Categories</span>
+        <Reveal className="flex flex-col items-center text-center gap-4 mb-14">
+          <span className="eyebrow">We Go Deep on Three Categories</span>
           <h2
-            className="font-display font-bold leading-[1.1] tracking-tight reveal"
+            className="font-display font-bold leading-[1.1] tracking-tight"
             style={{ fontSize: "var(--text-h2)", color: "#F0F4FF" }}
           >
             Not a Generalist.
             <br />
             <span style={{ color: "#FF6B2B" }}>A Specialist in Your World.</span>
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {industries.map((ind, i) => (
+        <StaggerGroup className="grid md:grid-cols-2 gap-5">
+          {industries.map((ind) => (
+            <StaggerItem key={ind.name}>
             <Link
-              key={ind.name}
               href={ind.href}
-              className="card reveal flex flex-col gap-5 no-underline group"
-              style={{ transitionDelay: `${i * 70}ms` }}
+              className="card flex flex-col gap-5 no-underline group h-full"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
@@ -154,8 +130,9 @@ export function IndustryVerticals() {
                 Explore {ind.name} Services <ArrowRight size={14} />
               </div>
             </Link>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

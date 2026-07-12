@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, Zap } from "lucide-react";
+import { Reveal } from "@/components/motion/reveal";
+import { BarCompare } from "@/components/motion/bar-compare";
 
 const platforms = [
   { name: "Blinkit", share: ">50% market share", color: "#FBBF24" },
@@ -18,57 +19,43 @@ const qcStats = [
 ];
 
 export function QcSpotlight() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="section"
-      style={{ background: "#111827" }}
-    >
+    <section className="section" style={{ background: "#111827" }}>
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: copy */}
-          <div className="flex flex-col gap-6">
-            <span className="eyebrow reveal w-fit">The Fastest-Growing Channel in India</span>
+          <Reveal className="flex flex-col gap-6">
+            <span className="eyebrow w-fit">The Fastest-Growing Channel in India</span>
             <h2
-              className="font-display font-bold leading-[1.1] tracking-tight reveal"
+              className="font-display font-bold leading-[1.1] tracking-tight"
               style={{ fontSize: "var(--text-h3)", color: "#F0F4FF" }}
             >
               Is Your Brand on Quick Commerce?
               <br />
               <span style={{ color: "#FF6B2B" }}>If Not, Someone Else Is.</span>
             </h2>
-            <p className="text-[15px] leading-relaxed reveal" style={{ color: "#8B9CC8" }}>
+            <p className="text-[15px] leading-relaxed" style={{ color: "#8B9CC8" }}>
               Every time a consumer in Mumbai opens Blinkit and searches &ldquo;protein bar&rdquo; — and your
               brand isn&apos;t there — a competitor gets that ₹240 order. Quick commerce is no longer an
               experiment. It&apos;s India&apos;s default for impulse and daily purchases.
             </p>
-            <p className="text-[15px] leading-relaxed reveal" style={{ color: "#8B9CC8" }}>
+            <p className="text-[15px] leading-relaxed" style={{ color: "#8B9CC8" }}>
               We run a free{" "}
               <strong style={{ color: "#F0F4FF" }}>Quick Commerce Viability Assessment</strong> — modeling
               your unit economics against platform fees — before you spend a single rupee on listing charges.
             </p>
 
+            <div className="p-4 rounded-card" style={{ background: "rgba(30,45,74,0.25)", border: "1px solid #1E2D4A" }}>
+              <BarCompare
+                label="Total Revenue After Adding Quick Commerce"
+                beforePercent={60}
+                afterPercent={100}
+                color="#818CF8"
+              />
+            </div>
+
             {/* Platforms */}
-            <div className="flex flex-col gap-2 reveal">
+            <div className="flex flex-col gap-2">
               {platforms.map((p) => (
                 <div
                   key={p.name}
@@ -85,7 +72,7 @@ export function QcSpotlight() {
               ))}
             </div>
 
-            <div className="flex flex-col gap-2 reveal">
+            <div className="flex flex-col gap-2">
               <Link href="/contact" className="btn-primary w-fit">
                 Get Your Free QC Viability Assessment <ArrowRight size={18} />
               </Link>
@@ -93,10 +80,10 @@ export function QcSpotlight() {
                 We&apos;ll tell you honestly if quick commerce isn&apos;t right for you yet. Most agencies won&apos;t.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right: stats grid */}
-          <div className="grid grid-cols-2 gap-4 reveal">
+          <Reveal delay={0.1} className="grid grid-cols-2 gap-4">
             {qcStats.map((s) => (
               <div
                 key={s.label}
@@ -117,7 +104,7 @@ export function QcSpotlight() {
                 </span>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -179,31 +179,6 @@ body {
   pointer-events: none;
 }
 
-/* ── WhatsApp float ── */
-.whatsapp-float {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 1000;
-  background: #25D366;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 20px;
-  border-radius: var(--pill-radius);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 15px;
-  box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-  text-decoration: none;
-  animation: pulse-wa 2.5s ease-in-out infinite;
-}
-@keyframes pulse-wa {
-  0%, 100% { box-shadow: 0 4px 24px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 4px 48px rgba(37,211,102,0.7); }
-}
-
 /* ── Grid background overlay ── */
 .bg-grid {
   background-image:
@@ -288,8 +263,5 @@ body {
 @media (max-width: 640px) {
   .sticky-cta-bar {
     display: flex;
-  }
-  .whatsapp-float {
-    bottom: 80px;
   }
 }

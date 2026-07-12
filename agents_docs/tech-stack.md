@@ -80,10 +80,29 @@ These are not aspirational — they are build requirements:
 ```bash
 # .env.local (never commit)
 NEXT_PUBLIC_GA_ID=          # Google Analytics 4 Measurement ID
-NEXT_PUBLIC_WA_NUMBER=      # WhatsApp business number (digits only, with country code)
+NEXT_PUBLIC_WA_NUMBER=      # WhatsApp business number (digits only, with country code) — currently unused, WhatsApp CTA is disabled site-wide
 NEXT_PUBLIC_CALENDLY_URL=   # Calendly booking URL
-CONTACT_FORM_EMAIL=         # Email endpoint for contact form submissions
+GOOGLE_SHEETS_WEBHOOK_URL=  # Apps Script Web App URL that appends contact-form submissions to a Google Sheet — see below
 ```
+
+### Contact form → Google Sheet setup
+
+`src/app/api/contact/route.ts` POSTs every validated submission to `GOOGLE_SHEETS_WEBHOOK_URL`. Without it set, submissions are only logged to the server console. To wire up a real Google Sheet:
+
+1. Create a Google Sheet. Add a header row: `Timestamp | Name | Email | Phone | Revenue | Message`.
+2. In the sheet, go to **Extensions → Apps Script**, delete the boilerplate, and paste:
+   ```js
+   function doPost(e) {
+     const data = JSON.parse(e.postData.contents);
+     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     sheet.appendRow([data.timestamp, data.name, data.email, data.phone, data.revenue, data.message]);
+     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+   ```
+3. **Deploy → New deployment → Web app.** Set "Execute as" to yourself and "Who has access" to **Anyone** (required for the server to POST to it without OAuth).
+4. Copy the deployment URL (ends in `/exec`) into `GOOGLE_SHEETS_WEBHOOK_URL` — locally in `.env.local`, and in Vercel under Project Settings → Environment Variables.
+5. Redeploy after setting the Vercel env var (env vars only apply to builds started after they're saved).
 
 ---
 

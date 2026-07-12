@@ -1,8 +1,8 @@
 "use client";
 
 const items = [
-  "₹50Cr+ Revenue Generated",
-  "200+ Brands Launched",
+  "Founder-Led, Not Agency-Run",
+  "Direct Access to Your Strategists",
   "7 Channels Managed",
   "3.5X Average ROAS",
   "90+ PageSpeed Scores",

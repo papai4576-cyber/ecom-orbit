@@ -22,12 +22,25 @@ A full-service Indian ecommerce agency. **7 channels, one team:**
 
 ---
 
+## Live Status & Contact Facts (keep in sync with reality)
+
+- **Live domain:** ecomorbit.in / www.ecomorbit.in (production, deployed on Vercel)
+- **Contact email:** connect@ecomorbit.in (footer, `/contact` page)
+- **Contact form:** submissions POST to a Google Apps Script webhook (`GOOGLE_SHEETS_WEBHOOK_URL` env var) that appends rows to a Google Sheet — no email/CRM delivery wired up yet
+- **WhatsApp CTA:** disabled site-wide (floating button, nav icon, footer pill, CTA buttons all removed) — re-enable only with a real business WhatsApp number
+- **Case Studies:** `/case-studies` pages, homepage case-studies section, and founder testimonials are removed site-wide — the prior client stories were placeholder/fabricated, not real. Case-study copy elsewhere in this doc is a template for when real data is available, not live content.
+- **Positioning:** do not lead with "D2C" in headline-level copy — Ecom Orbit serves both online D2C brands and offline retailers going digital; "D2C" reads as Shopify-only/online-native-brand framing and undersells the offline-to-online side. Fine to use "D2C" in category-stat context (e.g. "India's largest D2C category at 25% market share").
+- **Claims:** avoid unsubstantiated exclusivity language ("the only agency that...", "nobody else does...", "India's only..."). State the specifics and let them make the case instead.
+- **Team size / scale:** Ecom Orbit is genuinely a 2-founder consultancy that has worked with roughly 10–12 brands to date — not a large agency. Do not display aggregate scale numbers (total revenue generated, brands launched/served) since they'd overstate actual scale. Site-wide positioning now leans on "founder-led, direct access, no account managers" as the credibility signal instead of volume. Per-client case-study numbers (see below) are fine to use since they describe one real engagement, not an aggregate claim — but case studies are currently disabled site-wide anyway (see above).
+
+---
+
 ## Core Differentiators (use in copy and UI callouts)
 
-1. **India's only 7-channel SMB ecommerce agency** — competitors specialize in 1–2 channels; nobody integrates all 7 for SMBs
+1. **A 7-channel SMB ecommerce agency** — most competitors specialize in 1–2 channels; Ecom Orbit integrates all 7 for SMBs
 2. **One team, zero vendor juggling** — replaces 5 separate vendors (Shopify dev, ad agency, SEO consultant, Amazon specialist, logistics partner)
 3. **Built for ₹5L–₹1Cr/month brands** — underserved tier: too big for freelancers, too small for enterprise agencies
-4. **Offline-to-online specialist** — India has 13M+ kiranas; no competitor speaks to traditional retailers going digital
+4. **Offline-to-online specialist** — India has 13M+ kiranas; Ecom Orbit builds the digital bridge for traditional retailers going online
 5. **Transparent pricing** — publish tiered packages; rare in an industry of "custom quotes"
 6. **Quick Commerce Viability Assessment** — unique offer: we model your unit economics *before* you spend on listing fees
 
@@ -39,8 +52,7 @@ All stats should render in `JetBrains Mono`. Always use ₹, lakhs, crores.
 
 | Stat | Display value | Context |
 |------|--------------|---------|
-| Revenue generated | ₹50Cr+ | Across all client brands |
-| Brands launched | 200+ | D2C and offline-to-online |
+| Founders on every account | 2 | No account managers or junior handoffs |
 | Channels managed | 7 | Under one roof |
 | Average ROAS | 3.5X | Blended across all channels |
 | PageSpeed score | 90+ | Average for all stores built |
@@ -93,7 +105,7 @@ All stats should render in `JetBrains Mono`. Always use ₹, lakhs, crores.
 ## Services — Key Copy Points
 
 ### Shopify & WooCommerce Store Setup
-- Indian D2C stores average 1.5–2% CVR; Ecom Orbit stores hit 2.5–4%+
+- Indian ecommerce stores average 1.5–2% CVR; Ecom Orbit stores hit 2.5–4%+
 - All stores: Razorpay/PayU/Cashfree + UPI + COD checkout; Shiprocket/Delhivery integration; GST-compliant tax config
 - Target: 90+ PageSpeed, <2s load time, mobile-first
 - Timeline: 2–4 weeks to launch

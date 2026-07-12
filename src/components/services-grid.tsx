@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Store, TrendingUp, Search, ShoppingCart, Zap, Package, Layers, ArrowRight } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
+import { BrowserMockup } from "@/components/motion/browser-mockup";
 
 const services = [
   {
@@ -62,7 +63,7 @@ const services = [
   {
     icon: <Layers size={24} />,
     title: "End-to-End Management",
-    desc: "D2C website + marketplaces + quick commerce + logistics — all managed by one team. One WhatsApp thread. One monthly report.",
+    desc: "Your website + marketplaces + quick commerce + logistics — all managed by one team. One WhatsApp thread. One monthly report.",
     tag: "Most popular",
     color: "#FF6B2B",
     href: "/services/end-to-end",
@@ -72,52 +73,54 @@ const services = [
 ];
 
 export function ServicesGrid() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
-            });
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="section"
-      style={{ background: "#0A0E1A" }}
-    >
+    <section className="section" style={{ background: "#0A0E1A" }}>
       <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center gap-4 mb-14">
-          <span className="eyebrow reveal">Our Services</span>
+        <Reveal className="flex flex-col items-center text-center gap-4 mb-14">
+          <span className="eyebrow">Our Services</span>
           <h2
-            className="font-display font-bold leading-[1.1] tracking-tight reveal"
+            className="font-display font-bold leading-[1.1] tracking-tight"
             style={{ fontSize: "var(--text-h2)", color: "#F0F4FF" }}
           >
             Everything Your Ecommerce Brand Needs.
             <br />
             <span style={{ color: "#FF6B2B" }}>Every Channel.</span> One Team.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, i) => (
+        <BrowserMockup label="yourstore.in" className="max-w-3xl mx-auto mb-14">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <div className="h-3 w-24 rounded-full" style={{ background: "#2A3F6A" }} />
+              <div className="flex gap-2">
+                <div className="h-3 w-10 rounded-full" style={{ background: "#1E2D4A" }} />
+                <div className="h-3 w-10 rounded-full" style={{ background: "#1E2D4A" }} />
+                <div className="h-3 w-14 rounded-full" style={{ background: "#FF6B2B" }} />
+              </div>
+            </div>
+            <div
+              className="h-24 rounded-lg mt-1"
+              style={{ background: "linear-gradient(135deg, rgba(255,107,43,0.12), rgba(0,212,170,0.08))" }}
+            />
+            <div className="grid grid-cols-3 gap-3 mt-1">
+              {[0, 1, 2].map((i) => (
+                <div key={i} className="flex flex-col gap-2">
+                  <div className="h-14 rounded-lg" style={{ background: "#1A2235" }} />
+                  <div className="h-2 w-3/4 rounded-full" style={{ background: "#2A3F6A" }} />
+                  <div className="h-2 w-1/2 rounded-full" style={{ background: "#1E2D4A" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </BrowserMockup>
+
+        <StaggerGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.06}>
+          {services.map((service) => (
+            <StaggerItem key={service.title} className={service.featured ? "md:col-span-2 lg:col-span-1" : undefined}>
             <Link
-              key={service.title}
               href={service.href}
-              className={`card reveal group flex flex-col gap-5 no-underline ${service.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
+              className="card group flex flex-col gap-5 no-underline h-full"
               style={{
-                transitionDelay: `${i * 60}ms`,
                 border: service.featured ? "1px solid rgba(255,107,43,0.3)" : undefined,
                 background: service.featured ? "linear-gradient(135deg, #111827 0%, #1a1f2e 100%)" : undefined,
               }}
@@ -179,8 +182,9 @@ export function ServicesGrid() {
                 Learn more <ArrowRight size={14} />
               </div>
             </Link>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

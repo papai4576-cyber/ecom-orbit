@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, ShoppingBag, Globe, Zap } from "lucide-react";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
+import { ParallaxLayer } from "@/components/motion/parallax-layer";
 
 const channels = [
   {
@@ -32,57 +33,37 @@ const channels = [
 ];
 
 export function MultiChannel() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll(".reveal").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="section"
-      style={{ background: "#111827" }}
-    >
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center gap-4 mb-14">
-          <span className="eyebrow reveal">The Problem With One-Channel Thinking</span>
+    <section className="section relative overflow-hidden" style={{ background: "#111827" }}>
+      <ParallaxLayer speed={0.15} className="absolute -top-20 -right-20 w-96 h-96 rounded-full pointer-events-none" >
+        <div
+          className="w-full h-full rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%)", filter: "blur(60px)" }}
+        />
+      </ParallaxLayer>
+      <div className="container mx-auto px-6 relative">
+        <Reveal className="flex flex-col items-center text-center gap-4 mb-14">
+          <span className="eyebrow">The Problem With One-Channel Thinking</span>
           <h2
-            className="font-display font-bold leading-[1.1] tracking-tight reveal"
+            className="font-display font-bold leading-[1.1] tracking-tight"
             style={{ fontSize: "var(--text-h2)", color: "#F0F4FF" }}
           >
             Where Do Indian Consumers
             <br />
             <span style={{ color: "#FF6B2B" }}>Actually Buy?</span>
           </h2>
-          <p
-            className="max-w-2xl text-[17px] leading-relaxed reveal"
-            style={{ color: "#8B9CC8" }}
-          >
-            Most agencies answer with &ldquo;Shopify + Meta ads.&rdquo; That&apos;s incomplete. India&apos;s ecommerce
-            is three separate battlegrounds — and you&apos;re currently fighting in only one of them.
+          <p className="max-w-2xl text-[17px] leading-relaxed" style={{ color: "#8B9CC8" }}>
+            Most agencies answer with &ldquo;Shopify + Meta ads.&rdquo; That&apos;s a fifth of the picture. Indian
+            ecommerce is three separate battlegrounds — marketplaces, your own site, and quick commerce — and right
+            now you&apos;re probably fighting in one of them while your competitor holds all three.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-14">
-          {channels.map((ch, i) => (
+        <StaggerGroup className="grid md:grid-cols-3 gap-6 mb-14">
+          {channels.map((ch) => (
+            <StaggerItem key={ch.category}>
             <div
-              key={ch.category}
-              className="card reveal flex flex-col gap-5 group"
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="card flex flex-col gap-5 group h-full"
             >
               <div className="flex items-start justify-between">
                 <div
@@ -129,29 +110,34 @@ export function MultiChannel() {
                 ))}
               </div>
             </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
 
         {/* Pull quote */}
-        <div
-          className="reveal mx-auto max-w-3xl text-center p-8 rounded-card"
-          style={{
-            background: "rgba(255,107,43,0.05)",
-            border: "1px solid rgba(255,107,43,0.2)",
-          }}
+        <Reveal
+          className="mx-auto max-w-3xl text-center p-8 rounded-card"
         >
-          <p
-            className="font-display font-600 text-[20px] leading-relaxed"
-            style={{ color: "#F0F4FF" }}
+          <div
+            style={{
+              background: "rgba(255,107,43,0.05)",
+              border: "1px solid rgba(255,107,43,0.2)",
+              borderRadius: "var(--card-radius)",
+              padding: "32px",
+            }}
           >
-            &ldquo;Ecom Orbit is the only SMB agency in India managing all three — as{" "}
-            <span style={{ color: "#FF6B2B" }}>one system</span>,{" "}
-            <span style={{ color: "#FF6B2B" }}>one strategy</span>,{" "}
-            <span style={{ color: "#FF6B2B" }}>one monthly report</span>.&rdquo;
-          </p>
-        </div>
+            <p
+              className="font-display font-600 text-[20px] leading-relaxed"
+              style={{ color: "#F0F4FF" }}
+            >
+              &ldquo;Ecom Orbit runs marketplaces, your website, and quick commerce as{" "}
+              <span style={{ color: "#FF6B2B" }}>one system</span> — one strategy, one monthly report, zero
+              blame-shifting between vendors.&rdquo;
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="flex justify-center mt-8 reveal">
+        <Reveal className="flex justify-center mt-8">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 text-[14px] font-body font-500"
@@ -159,7 +145,7 @@ export function MultiChannel() {
           >
             See How Multi-Channel Works <ArrowRight size={16} />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

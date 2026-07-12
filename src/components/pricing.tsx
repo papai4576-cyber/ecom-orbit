@@ -35,7 +35,6 @@ const tiers = [
       "SEO & content (4 posts/month)",
       "Monthly revenue report",
       "Dedicated account manager",
-      "WhatsApp-first communication",
     ],
     cta: "Most Popular — Start Here",
     popular: true,
