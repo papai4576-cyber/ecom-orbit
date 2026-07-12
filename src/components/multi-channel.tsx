@@ -130,9 +130,9 @@ export function MultiChannel() {
               className="font-display font-600 text-[20px] leading-relaxed"
               style={{ color: "#F0F4FF" }}
             >
-              &ldquo;Ecom Orbit runs marketplaces, your website, and quick commerce as{" "}
-              <span style={{ color: "#FF6B2B" }}>one system</span> — one strategy, one monthly report, zero
-              blame-shifting between vendors.&rdquo;
+              &ldquo;You don&apos;t have to pick which battleground to fight in.{" "}
+              <span style={{ color: "#FF6B2B" }}>Ecom Orbit shows up in all three</span> — under your brand&apos;s
+              name, not five different ones.&rdquo;
             </p>
           </div>
         </Reveal>

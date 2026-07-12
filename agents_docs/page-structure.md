@@ -46,16 +46,16 @@ Each section has a background variant to create visual rhythm. Alternate between
 | 6 | Services Grid | bg-primary | Each card → service page |
 | 7 | Channel Ecosystem Diagram | bg-secondary | — |
 | 8 | Case Studies Preview | bg-primary | "View All Case Studies →" |
-| 9 | The Problem We Solve | bg-secondary | "Let's Fix This →" |
+| 9 | The Problem We Solve | bg-secondary | "Let's Fix This →" (inline link, not a button — see dedup note below) |
 | 10 | Industry Verticals | bg-primary | Per-industry CTAs |
-| 11 | Process Timeline | bg-primary | — |
-| 12 | Testimonials | bg-secondary | — |
-| 13 | Partner Badges | Dark band | — |
-| 14 | Quick Commerce Spotlight | bg-secondary | "Get Free QC Assessment →" |
-| 15 | Marketplace Spotlight | bg-primary | "Get Free Marketplace Audit →" |
+| 11 | Process Timeline | bg-primary | "Start with a Free Audit →" (inline link, not a button) |
+| 12 | Testimonials | bg-secondary | — *(disabled — see content-copy.md; row is stale, not live)* |
+| 13 | Partner Badges | Dark band | — *(removed — see content-copy.md "platform partner/certification" note; row is stale, not live)* |
+| 14 | Quick Commerce Spotlight | bg-secondary | "Get Free QC Assessment →" (inline link, not a button) |
+| 15 | Marketplace Spotlight | bg-primary | "Get Free Marketplace Audit →" (inline link, not a button) |
 | 16 | Pricing Tiers Preview | bg-secondary | Per-tier CTAs |
 | 17 | Final CTA | bg-primary + orange gradient | "Get Your Free Ecommerce Audit" |
-| 18 | Footer | bg-deep (#060A14) | WhatsApp button |
+| 18 | Footer | bg-deep (#060A14) | Privacy Policy / Terms of Service / Sitemap links *(WhatsApp button removed — see content-copy.md)* |
 
 ---
 
@@ -82,6 +82,7 @@ Each section has a background variant to create visual rhythm. Alternate between
 - **CTA:** [Get Your Free Ecommerce Audit →] only — the "Watch How It Works ▶" secondary CTA was removed (no video exists; don't re-add without an actual video to link)
 - **Trust pills:** specialization claims only, not certifications/partnerships we can't back — "Shopify & WooCommerce Specialists · Meta & Google Ads Specialists · Amazon & Flipkart Marketplace Specialists · Quick Commerce Specialists". Do not use "Partner"/"Certified"/agency-badge language (Shopify Partner, Google Partner, Meta Business Partner, Amazon SPN Certified, Semrush Agency) — Ecom Orbit is a 2-founder consultancy, not an official platform partner.
 - **Bottom ticker:** JetBrains Mono, orange, infinite scroll, key stats separated by · — same specialization-not-certification rule applies
+- **No stat-card grid in Hero** — the hero previously repeated a 4-stat card grid (7 channels/3.5X ROAS/90+ PageSpeed/2 founders) directly above the Ticker, which itself sits directly above Stats Strip showing the same numbers a third time. Removed (2026-07-12) — `Stats Strip` (row 5 below) is the single canonical place these numbers appear as a formal stat block. Don't re-add a stat grid to Hero.
 
 ---
 

@@ -63,7 +63,7 @@ const services = [
   {
     icon: <Layers size={24} />,
     title: "End-to-End Management",
-    desc: "Your website + marketplaces + quick commerce + logistics — all managed by one team. One WhatsApp thread. One monthly report.",
+    desc: "Your website + marketplaces + quick commerce + logistics, run by the same team — so nothing falls into the gap between two vendors' scope.",
     tag: "Most popular",
     color: "#FF6B2B",
     href: "/services/end-to-end",

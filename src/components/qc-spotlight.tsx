@@ -73,8 +73,12 @@ export function QcSpotlight() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <Link href="/contact" className="btn-primary w-fit">
-                Get Your Free QC Viability Assessment <ArrowRight size={18} />
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-[14px] font-body font-500 w-fit"
+                style={{ color: "#818CF8" }}
+              >
+                Get Your Free QC Viability Assessment <ArrowRight size={16} />
               </Link>
               <p className="text-[12px] italic" style={{ color: "#4A5A7A" }}>
                 We&apos;ll tell you honestly if quick commerce isn&apos;t right for you yet. Most agencies won&apos;t.

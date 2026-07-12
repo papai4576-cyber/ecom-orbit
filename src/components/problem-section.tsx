@@ -140,15 +140,19 @@ export function ProblemSection() {
             }}
           >
             <p className="font-display font-600 text-[20px] leading-relaxed" style={{ color: "#F0F4FF" }}>
-              &ldquo;One team. One WhatsApp thread. One monthly report.{" "}
-              <span style={{ color: "#FF6B2B" }}>Every channel working as one system.</span>&rdquo;
+              &ldquo;When something breaks, you call one team — not five, hoping someone owns it.{" "}
+              <span style={{ color: "#FF6B2B" }}>No handoffs, no finger-pointing, no chasing.</span>&rdquo;
             </p>
           </div>
         </Reveal>
 
         <Reveal className="flex justify-center">
-          <Link href="/contact" className="btn-primary">
-            Let&apos;s Fix This <ArrowRight size={18} />
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-[14px] font-body font-500"
+            style={{ color: "#00D4AA" }}
+          >
+            Let&apos;s Fix This <ArrowRight size={16} />
           </Link>
         </Reveal>
       </div>

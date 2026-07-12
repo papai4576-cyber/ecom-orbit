@@ -179,8 +179,12 @@ export function ProcessTimeline() {
         </div>
 
         <Reveal className="flex justify-center mt-12">
-          <Link href="/contact" className="btn-primary">
-            Start with a Free Audit <ArrowRight size={18} />
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-[14px] font-body font-500"
+            style={{ color: "#00D4AA" }}
+          >
+            Start with a Free Audit <ArrowRight size={16} />
           </Link>
         </Reveal>
       </div>

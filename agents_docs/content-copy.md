@@ -12,6 +12,8 @@
 
 **Avoid platform partner/certification claims we can't back** ("Shopify Partner," "Google Partner," "Meta Business Partner," "Amazon SPN Certified," "Semrush Agency"). Ecom Orbit is a 2-founder consultancy, not an official platform partner — use specialization language instead ("Shopify & WooCommerce Specialists," "Meta & Google Ads Specialists," etc.).
 
+**Homepage de-duplication rule (as of this revision):** the same stat block and the same "vendors blame each other" pitch used to appear 3-4 times down the homepage. Fixed: (1) the hero no longer has its own 4-stat card grid — `StatsStrip` is the single canonical place those numbers appear (Ticker's scrolling marquee stays too, since it's a different visual treatment, not a card grid); (2) only Hero uses the "five vendors blaming each other" framing — Problem Section, Multi-Channel, and Services Grid's End-to-End description each now make their own distinct point instead of restating it (see their entries below); (3) only Hero and the closing Final CTA remain full-button CTAs — the Problem Section, QC Spotlight, Marketplace Spotlight, and Process Timeline CTAs on the homepage are inline text links now, not full `btn-primary` buttons. Don't reintroduce a second full stat-card grid, a second "vendors blame each other" restatement, or a fifth full-button CTA on the homepage.
+
 ---
 
 ## Hero Section
@@ -54,7 +56,7 @@ Actually Buy?
 **Table labels:** Marketplaces / D2C Website / Quick Commerce
 
 **Pull quote (below table):**
-"Ecom Orbit runs marketplaces, your website, and quick commerce as one system — one strategy, one monthly report, zero blame-shifting between vendors."
+"You don't have to pick which battleground to fight in. Ecom Orbit shows up in all three — under your brand's name, not five different ones." (Deliberately a coverage/competitive-positioning angle, distinct from Hero's "vendors blame each other" hook and Problem Section's accountability angle — see the dedup note at the top of this file.)
 
 ---
 
@@ -92,7 +94,7 @@ Every Channel. One Team.
 
 *Inventory & Logistics Operations* — "Shiprocket setup, COD optimization, return management. We fix the ops layer most agencies pretend doesn't exist."
 
-*End-to-End Management* — "Your website + marketplaces + quick commerce + logistics — all managed by one team. One WhatsApp thread. One monthly report. You focus on your product."
+*End-to-End Management* — "Your website + marketplaces + quick commerce + logistics, run by the same team — so nothing falls into the gap between two vendors' scope."
 
 ---
 
@@ -125,9 +127,9 @@ The bill for that setup: rising ad costs, campaigns that don't match the landing
 
 Ecom Orbit replaces all of it."
 
-**Pull quote:** "One team. One WhatsApp thread. One monthly report. Every channel working as one system."
+**Pull quote:** "When something breaks, you call one team — not five, hoping someone owns it. No handoffs, no finger-pointing, no chasing." (Accountability/ownership angle — distinct from Hero's "vendors blame each other" hook and Multi-Channel's coverage angle.)
 
-**CTA:** "Let's Fix This →"
+**CTA (homepage, inline link not a full button):** "Let's Fix This →"
 
 ---
 
@@ -177,7 +179,7 @@ A Specialist in Your World.
 
 Before you spend a rupee on listing fees, we run a free Quick Commerce Viability Assessment — modeling your unit economics against platform take-rates so you know the real math going in, not after."
 
-**CTA:** "Get Your Free QC Viability Assessment →"
+**CTA (homepage, inline link not a full button):** "Get Your Free QC Viability Assessment →"
 
 **Note below CTA:** "If quick commerce isn't right for you yet, we'll say so. Most agencies won't — because it's a fee either way for them."
 
@@ -192,7 +194,7 @@ Before you spend a rupee on listing fees, we run a free Quick Commerce Viability
 
 Most brands treat marketplaces as an afterthought — a listing they set up once and forgot. Ecom Orbit treats them as a revenue engine that needs the same weekly attention as your website."
 
-**CTA:** "Get a Free Marketplace Audit →"
+**CTA (homepage, inline link not a full button):** "Get a Free Marketplace Audit →"
 
 ---
 

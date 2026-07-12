@@ -13,13 +13,6 @@ const trustPills = [
   "Quick Commerce Specialists",
 ];
 
-const heroStats = [
-  { value: "2", label: "Founders on Every Account" },
-  { value: "7", label: "Channels Managed" },
-  { value: "3.5X", label: "Average ROAS" },
-  { value: "90+", label: "PageSpeed Score" },
-];
-
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -178,32 +171,6 @@ export function Hero() {
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#00D4AA" }} />
               {pill}
             </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 w-full max-w-3xl"
-        >
-          {heroStats.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col items-center gap-1 px-4 py-4 rounded-card"
-              style={{
-                background: "rgba(17,24,39,0.8)",
-                border: "1px solid rgba(30,45,74,0.8)",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <span className="font-mono font-bold text-[22px]" style={{ color: "#FF6B2B" }}>
-                {stat.value}
-              </span>
-              <span className="text-[11px] font-body text-center" style={{ color: "#8B9CC8" }}>
-                {stat.label}
-              </span>
-            </div>
           ))}
         </motion.div>
       </motion.div>

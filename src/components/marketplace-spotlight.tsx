@@ -131,8 +131,12 @@ export function MarketplaceSpotlight() {
             </div>
 
             <div className="reveal">
-              <Link href="/contact" className="btn-primary w-fit">
-                Get a Free Marketplace Audit <ArrowRight size={18} />
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-[14px] font-body font-500 w-fit"
+                style={{ color: "#FF6B2B" }}
+              >
+                Get a Free Marketplace Audit <ArrowRight size={16} />
               </Link>
             </div>
           </div>
