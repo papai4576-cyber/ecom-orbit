@@ -2,16 +2,15 @@
 
 import Link from "next/link";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { OrbitDiagram } from "@/components/motion/orbit-diagram";
 
 const trustPills = [
-  "Shopify Partner",
-  "Google Partner",
-  "Meta Business Partner",
-  "Amazon SPN Certified",
-  "Semrush Agency",
+  "Shopify & WooCommerce Specialists",
+  "Meta & Google Ads Specialists",
+  "Amazon & Flipkart Marketplace Specialists",
+  "Quick Commerce Specialists",
 ];
 
 const heroStats = [
@@ -158,15 +157,6 @@ export function Hero() {
             Get Your Free Ecommerce Audit
             <ArrowRight size={18} />
           </Link>
-          <button className="btn-secondary flex items-center gap-3 text-[16px]">
-            <span
-              className="flex items-center justify-center w-8 h-8 rounded-full"
-              style={{ background: "rgba(255,107,43,0.15)", border: "1px solid rgba(255,107,43,0.3)" }}
-            >
-              <Play size={13} fill="#FF6B2B" className="text-orange ml-0.5" />
-            </span>
-            Watch How It Works
-          </button>
         </motion.div>
 
         <motion.div

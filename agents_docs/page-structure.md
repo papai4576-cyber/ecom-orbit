@@ -75,13 +75,13 @@ Each section has a background variant to create visual rhythm. Alternate between
 - Min-height: 100vh. Background: see design-system.md (radial orange glow + grid overlay)
 - **Eyebrow:** "🚀 India's 7-Channel Ecommerce Agency"
 - **Headline (3 lines):**
-  - Line 1: "Your D2C Brand" — color: white
+  - Line 1: "Your Business" — color: white (deliberately not "D2C Brand" — see brand-context.md positioning note)
   - Line 2: "Deserves a Store" — color: **orange (#FF6B2B)**; SVG underline that draws on page load
   - Line 3: "That Actually Sells." — color: white
 - **Subheadline:** Max-width 640px, centered, color: text-secondary
-- **CTAs:** [Get Your Free Ecommerce Audit →] + [Watch How It Works ▶]
-- **Trust pills:** Shopify Partner · Google Partner · Meta Business Partner · Amazon SPN · Semrush Agency
-- **Bottom ticker:** JetBrains Mono, orange, infinite scroll, key stats separated by ·
+- **CTA:** [Get Your Free Ecommerce Audit →] only — the "Watch How It Works ▶" secondary CTA was removed (no video exists; don't re-add without an actual video to link)
+- **Trust pills:** specialization claims only, not certifications/partnerships we can't back — "Shopify & WooCommerce Specialists · Meta & Google Ads Specialists · Amazon & Flipkart Marketplace Specialists · Quick Commerce Specialists". Do not use "Partner"/"Certified"/agency-badge language (Shopify Partner, Google Partner, Meta Business Partner, Amazon SPN Certified, Semrush Agency) — Ecom Orbit is a 2-founder consultancy, not an official platform partner.
+- **Bottom ticker:** JetBrains Mono, orange, infinite scroll, key stats separated by · — same specialization-not-certification rule applies
 
 ---
 

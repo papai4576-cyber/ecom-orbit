@@ -5,8 +5,12 @@
 **Temporarily disabled site-wide (as of this revision):**
 - **WhatsApp CTA/floating button** — removed from nav, footer, CTAs, and contact page. Any "Chat on WhatsApp" copy below is historical/aspirational until this is re-enabled with a real business number.
 - **Case Studies** — the `/case-studies` pages, homepage case-studies section, and founder testimonials are removed site-wide because the client stories were placeholder/fabricated, not real client data. The Case Studies copy and canonical numbers below are kept as a template for when real case studies are ready — do not use them on the live site until then.
+- **"Watch How It Works" hero CTA** — removed; there is no video to link to. Don't re-add without a real video.
+- **Calendly embed on Contact page** — removed; it pointed at the generic calendly.com homepage, not a real booking link. Re-add only with an actual Calendly (or similar) URL.
 
 **Avoid unsubstantiated exclusivity claims** ("the only agency that...", "nobody else does...", "India's only..."). These are hard to defend and read as overreach. State what Ecom Orbit does and let the specificity make the case, instead of claiming to be the only one doing it.
+
+**Avoid platform partner/certification claims we can't back** ("Shopify Partner," "Google Partner," "Meta Business Partner," "Amazon SPN Certified," "Semrush Agency"). Ecom Orbit is a 2-founder consultancy, not an official platform partner — use specialization language instead ("Shopify & WooCommerce Specialists," "Meta & Google Ads Specialists," etc.).
 
 ---
 
@@ -25,11 +29,12 @@ That Actually Sells.
 **Subheadline:**
 "One team runs your Shopify store, your Amazon and Meesho accounts, and your Blinkit and Zepto listings — instead of five vendors blaming each other when a launch goes sideways."
 
-**Primary CTA:** "Get Your Free Ecommerce Audit →"
-**Secondary CTA:** "Watch How It Works ▶"
+**Primary CTA:** "Get Your Free Ecommerce Audit →" (only CTA — no secondary "Watch How It Works" video exists)
+
+**Trust pills:** "Shopify & WooCommerce Specialists  ·  Meta & Google Ads Specialists  ·  Amazon & Flipkart Marketplace Specialists  ·  Quick Commerce Specialists"
 
 **Ticker items:**
-"Founder-Led, Not Agency-Run  ·  Direct Access to Your Strategists  ·  7 Channels Managed  ·  3.5X Average ROAS  ·  90+ PageSpeed Scores  ·  Amazon SPN Certified  ·  Blinkit Onboarding Partner  ·"
+"Founder-Led, Not Agency-Run  ·  Direct Access to Your Strategists  ·  7 Channels Managed  ·  3.5X Average ROAS  ·  90+ PageSpeed Scores  ·  Amazon & Flipkart Marketplace Specialists  ·  Quick Commerce Specialists  ·  <18% Amazon ACOS  ·  One Team. Zero Vendor Juggling.  ·"
 
 ---
 
@@ -287,7 +292,7 @@ We built Ecom Orbit to be the team that owns all of it — store, marketing, mar
 **Trust signal near submit:** "We respond within 4 hours (Mon–Sat, 10am–7pm IST)"
 
 **Alongside-form panel headline:** "Prefer to just talk?"
-**Alongside-form panel body:** "Book a fixed 30-minute slot on Calendly, or email us directly — either works."
+**Alongside-form panel body:** "Email us directly and we'll get back to you within 4 hours." (No Calendly embed — removed until a real booking link exists; see brand-context.md "Live Status & Contact Facts.")
 
 **Error state copy (orange, not red):** "That doesn't look right — mind checking this field?"
 

@@ -128,14 +128,18 @@ export function Footer() {
             © 2025 Ecom Orbit. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {["Privacy Policy", "Terms of Service", "Sitemap"].map((l) => (
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy" },
+              { label: "Terms of Service", href: "/terms-of-service" },
+              { label: "Sitemap", href: "/sitemap.xml" },
+            ].map((l) => (
               <Link
-                key={l}
-                href="#"
+                key={l.label}
+                href={l.href}
                 className="text-[12px] transition-colors"
                 style={{ color: "#4A5A7A" }}
               >
-                {l}
+                {l.label}
               </Link>
             ))}
           </div>

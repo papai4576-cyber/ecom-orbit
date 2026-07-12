@@ -6,10 +6,9 @@ const items = [
   "7 Channels Managed",
   "3.5X Average ROAS",
   "90+ PageSpeed Scores",
-  "Amazon SPN Certified",
-  "Blinkit Onboarding Partner",
+  "Amazon & Flipkart Marketplace Specialists",
+  "Quick Commerce Specialists",
   "<18% Amazon ACOS",
-  "30-Day Launch Guarantee",
   "One Team. Zero Vendor Juggling.",
 ];
 

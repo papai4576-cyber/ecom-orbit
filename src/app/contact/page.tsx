@@ -29,7 +29,7 @@ export default function ContactPage() {
                   Prefer to just talk?
                 </h3>
                 <p className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>
-                  Book a fixed 30-minute slot on Calendly, or email us directly — either works.
+                  Email us directly and we&apos;ll get back to you within 4 hours.
                 </p>
               </div>
               <div className="flex flex-col gap-1">
@@ -42,13 +42,6 @@ export default function ContactPage() {
                 <span className="text-[11px] uppercase tracking-wider" style={{ color: "#4A5A7A" }}>Hours</span>
                 <span className="text-[14px]" style={{ color: "#8B9CC8" }}>Mon–Sat, 10am–7pm IST</span>
               </div>
-              <iframe
-                src="https://calendly.com/"
-                title="Book a call"
-                className="w-full rounded-btn"
-                style={{ height: "300px", border: "1px solid #1E2D4A" }}
-                loading="lazy"
-              />
             </div>
           </Reveal>
         </div>
