@@ -72,7 +72,7 @@ Each section has a background variant to create visual rhythm. Alternate between
 
 ## Hero Section Spec
 
-- Min-height: 100vh. Background: see design-system.md (radial orange glow + grid overlay)
+- Min-height: ~100vh. Background: white tone (#fbfbfd), no glow or grid; the orbit diagram sits below the CTA (see DESIGN.md)
 - **Eyebrow:** "🚀 India's 7-Channel Ecommerce Agency"
 - **Headline (3 lines):**
   - Line 1: "Your Business" — color: white (deliberately not "D2C Brand" — see brand-context.md positioning note)

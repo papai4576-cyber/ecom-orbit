@@ -6,7 +6,7 @@ export function PageShell({ children }: { children: ReactNode }) {
   return (
     <>
       <Nav />
-      <main style={{ paddingTop: "64px" }}>{children}</main>
+      <main style={{ paddingTop: "60px" }}>{children}</main>
       <Footer />
     </>
   );

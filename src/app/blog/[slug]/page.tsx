@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog-posts";
@@ -22,30 +21,28 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <PageShell>
-      <article className="section" style={{ background: "#0A0E1A" }}>
-        <div className="container mx-auto px-6 max-w-2xl">
-          <Reveal className="flex flex-col gap-4 mb-10">
-            <Link href="/blog" className="text-[13px] font-500 w-fit" style={{ color: "#00D4AA" }}>
-              ← Back to Blog
+      <article className="section tone-white">
+        <div className="narrow">
+          <Reveal className="mb-12 flex flex-col gap-4">
+            <Link href="/blog" className="text-[15px] text-[var(--link)] hover:underline w-fit">
+              ← Back to blog
             </Link>
-            <span className="eyebrow w-fit">{post.category}</span>
-            <h1 className="font-display font-bold leading-[1.1]" style={{ fontSize: "var(--text-h2)", color: "#F0F4FF" }}>
-              {post.title}
-            </h1>
-            <p className="text-[17px] leading-relaxed" style={{ color: "#8B9CC8" }}>{post.excerpt}</p>
+            <span className="eyebrow">{post.category}</span>
+            <h1 className="h2 !text-[clamp(34px,5.4vw,56px)]">{post.title}</h1>
+            <p className="lead">{post.excerpt}</p>
           </Reveal>
 
-          <StaggerGroup className="flex flex-col gap-5">
+          <StaggerGroup className="flex flex-col gap-6">
             {post.bodyOutline.map((paragraph) => (
               <StaggerItem key={paragraph}>
-                <p className="text-[15px] leading-relaxed" style={{ color: "#8B9CC8" }}>{paragraph}</p>
+                <p className="body">{paragraph}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>
 
-          <Reveal className="mt-12">
+          <Reveal className="mt-14">
             <Link href={post.ctaHref} className="btn-primary">
-              {post.ctaLabel.replace(" →", "")} <ArrowRight size={18} />
+              {post.ctaLabel.replace(" →", "")}
             </Link>
           </Reveal>
         </div>

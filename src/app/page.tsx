@@ -1,6 +1,5 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
-import { Ticker } from "@/components/ticker";
 import { MultiChannel } from "@/components/multi-channel";
 import { StatsStrip } from "@/components/stats-strip";
 import { ServicesGrid } from "@/components/services-grid";
@@ -19,7 +18,6 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero />
-        <Ticker />
         <MultiChannel />
         <StatsStrip />
         <ServicesGrid />

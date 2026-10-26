@@ -20,47 +20,31 @@ const included = [
 export default function FreeAuditPage() {
   return (
     <PageShell>
-      <section
-        className="section bg-grid"
-        style={{
-          backgroundImage: `
-            radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,107,43,0.08) 0%, transparent 65%),
-            linear-gradient(rgba(30,45,74,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(30,45,74,0.3) 1px, transparent 1px)
-          `,
-          backgroundSize: "auto, 60px 60px, 60px 60px",
-          background: "#0A0E1A",
-        }}
-      >
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
+      <section className="section tone-white">
+        <div className="container grid items-start gap-12 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-6">
-            <span className="eyebrow w-fit">FREE, NO-OBLIGATION</span>
-            <h1
-              className="font-display font-bold leading-[1.1] tracking-tight"
-              style={{ fontSize: "var(--text-h2)", color: "#F0F4FF" }}
-            >
-              We&apos;ll Tear Down Your Store
-              <br />
-              <span style={{ color: "#FF6B2B" }}>Before Your Competitor Does.</span>
+            <span className="eyebrow">FREE, NO-OBLIGATION</span>
+            <h1 className="h2 !text-[clamp(36px,5.6vw,60px)]">
+              We&apos;ll tear down your store <span className="accent-text">before your competitor does.</span>
             </h1>
-            <p className="text-[16px] leading-relaxed" style={{ color: "#8B9CC8" }}>
+            <p className="lead">
               In 48 hours, we&apos;ll hand you a written audit of your Shopify/WooCommerce store, ad accounts,
               marketplace listings, and logistics setup — with specific, numbered fixes. Keep it whether or not you
               ever work with us.
             </p>
 
-            <StaggerGroup className="flex flex-col gap-3 mt-2">
+            <StaggerGroup className="mt-2 flex flex-col gap-3">
               {included.map((item) => (
                 <StaggerItem key={item}>
                   <div className="flex items-start gap-3">
-                    <Check size={18} style={{ color: "#00D4AA" }} className="shrink-0 mt-0.5" />
-                    <span className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>{item}</span>
+                    <Check size={18} className="mt-0.5 shrink-0" style={{ color: "var(--link)" }} />
+                    <span className="small" style={{ color: "var(--fg)" }}>{item}</span>
                   </div>
                 </StaggerItem>
               ))}
             </StaggerGroup>
 
-            <p className="text-[13px] mt-2" style={{ color: "#4A5A7A" }}>
+            <p className="caption">
               Every audit is done personally by one of our two founders — not a template report or a junior
               analyst&apos;s checklist.
             </p>
@@ -68,7 +52,7 @@ export default function FreeAuditPage() {
 
           <Reveal delay={0.15} className="card">
             <ContactForm />
-            <p className="text-[12px] text-center mt-4" style={{ color: "#4A5A7A" }}>
+            <p className="caption mt-4 text-center">
               No credit card. No sales call unless you ask for one. Just the audit.
             </p>
           </Reveal>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 const revenueOptions = [
   "Pre-launch",
@@ -51,116 +51,74 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div
-        className="flex flex-col items-center text-center gap-3 p-10 rounded-card"
-        style={{ background: "#111827", border: "1px solid rgba(0,212,170,0.3)" }}
-      >
-        <CheckCircle2 size={36} style={{ color: "#00D4AA" }} />
-        <h3 className="font-display font-600 text-[18px]" style={{ color: "#F0F4FF" }}>
-          Got it — thanks!
-        </h3>
-        <p className="text-[14px]" style={{ color: "#8B9CC8" }}>
-          We respond within 24 hours (Mon–Sat, 10am–7pm IST).
-        </p>
+      <div className="flex flex-col items-center gap-3 py-10 text-center" role="status">
+        <CheckCircle2 size={40} strokeWidth={1.5} style={{ color: "var(--link)" }} />
+        <h3 className="h3">Got it — thanks!</h3>
+        <p className="small">We respond within 24 hours (Mon–Sat, 10am–7pm IST).</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-5"
+      noValidate
+      style={{ ["--bg-field" as string]: "#ffffff" }}
+    >
       <div>
-        <label className="text-[13px] font-500 mb-1.5 block" style={{ color: "#8B9CC8" }}>Name</label>
-        <input
-          {...register("name")}
-          className="w-full px-4 py-3 rounded-btn text-[14px] outline-none"
-          style={{
-            background: "#0A0E1A",
-            border: `1px solid ${errors.name ? "#FF6B2B" : "#1E2D4A"}`,
-            color: "#F0F4FF",
-          }}
-        />
-        {errors.name && <p className="text-[12px] mt-1" style={{ color: "#FF6B2B" }}>{errors.name.message}</p>}
+        <label htmlFor="cf-name" className="field-label">Name</label>
+        <input id="cf-name" autoComplete="name" aria-invalid={!!errors.name} {...register("name")} className="field" />
+        {errors.name && <p className="field-error">{errors.name.message}</p>}
       </div>
 
       <div>
-        <label className="text-[13px] font-500 mb-1.5 block" style={{ color: "#8B9CC8" }}>Email</label>
-        <input
-          {...register("email")}
-          type="email"
-          className="w-full px-4 py-3 rounded-btn text-[14px] outline-none"
-          style={{
-            background: "#0A0E1A",
-            border: `1px solid ${errors.email ? "#FF6B2B" : "#1E2D4A"}`,
-            color: "#F0F4FF",
-          }}
-        />
-        {errors.email && <p className="text-[12px] mt-1" style={{ color: "#FF6B2B" }}>{errors.email.message}</p>}
+        <label htmlFor="cf-email" className="field-label">Email</label>
+        <input id="cf-email" type="email" autoComplete="email" aria-invalid={!!errors.email} {...register("email")} className="field" />
+        {errors.email && <p className="field-error">{errors.email.message}</p>}
       </div>
 
       <div>
-        <label className="text-[13px] font-500 mb-1.5 block" style={{ color: "#8B9CC8" }}>Phone</label>
-        <input
-          {...register("phone")}
-          type="tel"
-          className="w-full px-4 py-3 rounded-btn text-[14px] outline-none"
-          style={{
-            background: "#0A0E1A",
-            border: `1px solid ${errors.phone ? "#FF6B2B" : "#1E2D4A"}`,
-            color: "#F0F4FF",
-          }}
-        />
-        {errors.phone && <p className="text-[12px] mt-1" style={{ color: "#FF6B2B" }}>{errors.phone.message}</p>}
+        <label htmlFor="cf-phone" className="field-label">Phone</label>
+        <input id="cf-phone" type="tel" autoComplete="tel" aria-invalid={!!errors.phone} {...register("phone")} className="field" />
+        {errors.phone && <p className="field-error">{errors.phone.message}</p>}
       </div>
 
       <div>
-        <label className="text-[13px] font-500 mb-1.5 block" style={{ color: "#8B9CC8" }}>Monthly Revenue</label>
-        <select
-          {...register("revenue")}
-          className="w-full px-4 py-3 rounded-btn text-[14px] outline-none"
-          style={{
-            background: "#0A0E1A",
-            border: `1px solid ${errors.revenue ? "#FF6B2B" : "#1E2D4A"}`,
-            color: "#F0F4FF",
-          }}
-          defaultValue=""
-        >
+        <label htmlFor="cf-revenue" className="field-label">Monthly revenue</label>
+        <select id="cf-revenue" aria-invalid={!!errors.revenue} {...register("revenue")} className="field" defaultValue="">
           <option value="" disabled>Select a range</option>
           {revenueOptions.map((r) => (
             <option key={r} value={r}>{r}</option>
           ))}
         </select>
-        {errors.revenue && <p className="text-[12px] mt-1" style={{ color: "#FF6B2B" }}>{errors.revenue.message}</p>}
+        {errors.revenue && <p className="field-error">{errors.revenue.message}</p>}
       </div>
 
       <div>
-        <label className="text-[13px] font-500 mb-1.5 block" style={{ color: "#8B9CC8" }}>Message</label>
+        <label htmlFor="cf-message" className="field-label">Message</label>
         <textarea
-          {...register("message")}
+          id="cf-message"
           rows={4}
           placeholder="What's the biggest thing slowing you down right now?"
-          className="w-full px-4 py-3 rounded-btn text-[14px] outline-none resize-none"
-          style={{
-            background: "#0A0E1A",
-            border: `1px solid ${errors.message ? "#FF6B2B" : "#1E2D4A"}`,
-            color: "#F0F4FF",
-          }}
+          aria-invalid={!!errors.message}
+          {...register("message")}
+          className="field resize-none"
         />
-        {errors.message && <p className="text-[12px] mt-1" style={{ color: "#FF6B2B" }}>{errors.message.message}</p>}
+        {errors.message && <p className="field-error">{errors.message.message}</p>}
       </div>
 
-      <button type="submit" disabled={status === "submitting"} className="btn-primary justify-center mt-2">
-        {status === "submitting" ? "Sending…" : "Send & Get Your Free Audit"} <ArrowRight size={18} />
+      <button type="submit" disabled={status === "submitting"} className="btn-primary mt-1 w-full">
+        {status === "submitting" ? "Sending…" : "Send & Get Your Free Audit"}
       </button>
 
       {status === "error" && (
-        <p className="text-[13px] text-center" style={{ color: "#FF6B2B" }}>
+        <p className="field-error text-center" role="alert">
           Something went wrong — try again, or email us directly.
         </p>
       )}
 
-      <p className="text-[12px] text-center" style={{ color: "#4A5A7A" }}>
-        We respond within 24 hours (Mon–Sat, 10am–7pm IST)
-      </p>
+      <p className="caption text-center">We respond within 24 hours (Mon–Sat, 10am–7pm IST)</p>
     </form>
   );
 }

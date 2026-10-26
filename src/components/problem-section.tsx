@@ -26,134 +26,65 @@ const fixes = [
 
 export function ProblemSection() {
   return (
-    <section className="section" style={{ background: "#111827" }}>
-      <div className="container mx-auto px-6">
-        <Reveal className="flex flex-col items-center text-center gap-4 mb-10">
+    <section className="section tone-dark">
+      <div className="container">
+        <Reveal className="section-head">
           <span className="eyebrow">The Real Problem</span>
-          <h2
-            className="font-display font-bold leading-[1.1] tracking-tight max-w-3xl"
-            style={{ fontSize: "var(--text-h2)", color: "#F0F4FF" }}
-          >
-            You&apos;re the unpaid project manager
-            <br />
-            of your own ecommerce operation.
-          </h2>
+          <h2 className="h2">You&apos;re the unpaid project manager of your own ecommerce operation.</h2>
         </Reveal>
 
-        {/* Before / after visual */}
-        <Reveal className="flex items-center justify-center gap-6 sm:gap-14 mb-14">
-          <div className="flex flex-col items-center gap-2">
+        <Reveal className="mb-16 flex items-center justify-center gap-6 sm:gap-14">
+          <div className="flex flex-col items-center gap-3">
             <ScatterDiagram size={140} />
-            <span className="text-[11px] font-mono uppercase tracking-widest" style={{ color: "#EF4444" }}>
-              5 vendors, 0 system
-            </span>
+            <span className="caption">5 vendors, 0 system</span>
           </div>
-          <ArrowRight size={22} style={{ color: "#4A5A7A" }} className="shrink-0" />
-          <div className="flex flex-col items-center gap-2">
+          <ArrowRight size={22} className="shrink-0" style={{ color: "var(--fg3)" }} />
+          <div className="flex flex-col items-center gap-3">
             <OrbitDiagram size={140} />
-            <span className="text-[11px] font-mono uppercase tracking-widest" style={{ color: "#00D4AA" }}>
-              1 team, 1 system
-            </span>
+            <span className="caption" style={{ color: "var(--link)" }}>1 team, 1 system</span>
           </div>
         </Reveal>
 
-        <StaggerGroup className="grid lg:grid-cols-2 gap-6 mb-14">
-          {/* Pain side */}
+        <StaggerGroup className="mb-16 grid gap-4 lg:grid-cols-2">
           <StaggerItem>
-          <div
-            className="rounded-card p-7 flex flex-col gap-5 h-full"
-            style={{ background: "#0A0E1A", border: "1px solid rgba(239,68,68,0.15)" }}
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(239,68,68,0.12)", color: "#EF4444" }}
-              >
-                <X size={16} />
-              </div>
-              <h3 className="font-display font-600 text-[17px]" style={{ color: "#F0F4FF" }}>
-                What most founders deal with
-              </h3>
+            <div className="card flex h-full flex-col gap-6">
+              <h3 className="h4">What most founders deal with</h3>
+              <ul className="flex flex-col gap-4">
+                {pains.map((pain) => (
+                  <li key={pain} className="flex items-start gap-3">
+                    <X size={18} className="mt-0.5 shrink-0" style={{ color: "var(--fg3)" }} />
+                    <span className="small">{pain}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex flex-col gap-3">
-              {pains.map((pain) => (
-                <div key={pain} className="flex items-start gap-3">
-                  <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 shrink-0"
-                    style={{ background: "rgba(239,68,68,0.12)", color: "#EF4444" }}
-                  >
-                    <X size={10} />
-                  </div>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>
-                    {pain}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
           </StaggerItem>
 
-          {/* Fix side */}
           <StaggerItem>
-          <div
-            className="rounded-card p-7 flex flex-col gap-5 h-full"
-            style={{ background: "#0A0E1A", border: "1px solid rgba(0,212,170,0.2)" }}
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(0,212,170,0.12)", color: "#00D4AA" }}
-              >
-                <Check size={16} />
-              </div>
-              <h3 className="font-display font-600 text-[17px]" style={{ color: "#F0F4FF" }}>
-                What Ecom Orbit replaces it with
-              </h3>
+            <div className="card flex h-full flex-col gap-6">
+              <h3 className="h4">What Ecom Orbit replaces it with</h3>
+              <ul className="flex flex-col gap-4">
+                {fixes.map((fix) => (
+                  <li key={fix} className="flex items-start gap-3">
+                    <Check size={18} className="mt-0.5 shrink-0" style={{ color: "var(--link)" }} />
+                    <span className="small" style={{ color: "var(--fg)" }}>{fix}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="flex flex-col gap-3">
-              {fixes.map((fix) => (
-                <div key={fix} className="flex items-start gap-3">
-                  <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 shrink-0"
-                    style={{ background: "rgba(0,212,170,0.12)", color: "#00D4AA" }}
-                  >
-                    <Check size={10} />
-                  </div>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>
-                    {fix}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
           </StaggerItem>
         </StaggerGroup>
 
-        {/* Pull quote */}
-        <Reveal className="mx-auto max-w-2xl text-center p-8 rounded-card mb-8">
-          <div
-            style={{
-              background: "rgba(255,107,43,0.05)",
-              border: "1px solid rgba(255,107,43,0.2)",
-              borderRadius: "var(--card-radius)",
-              padding: "32px",
-            }}
-          >
-            <p className="font-display font-600 text-[20px] leading-relaxed" style={{ color: "#F0F4FF" }}>
-              &ldquo;When something breaks, you call one team — not five, hoping someone owns it.{" "}
-              <span style={{ color: "#FF6B2B" }}>No handoffs, no finger-pointing, no chasing.</span>&rdquo;
-            </p>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="h3">
+            &ldquo;When something breaks, you call one team — not five, hoping someone owns it.{" "}
+            <span className="accent-text">No handoffs, no finger-pointing, no chasing.</span>&rdquo;
+          </p>
+          <div className="mt-8">
+            <Link href="/contact" className="link-more">
+              Let&apos;s fix this
+            </Link>
           </div>
-        </Reveal>
-
-        <Reveal className="flex justify-center">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 text-[14px] font-body font-500"
-            style={{ color: "#00D4AA" }}
-          >
-            Let&apos;s Fix This <ArrowRight size={16} />
-          </Link>
         </Reveal>
       </div>
     </section>

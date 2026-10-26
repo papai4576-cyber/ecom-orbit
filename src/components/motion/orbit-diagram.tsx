@@ -13,22 +13,27 @@ import {
 } from "lucide-react";
 
 const CHANNELS = [
-  { label: "Store", Icon: ShoppingBag, radius: 1 },
-  { label: "Ads", Icon: Megaphone, radius: 1 },
-  { label: "SEO", Icon: Search, radius: 1 },
-  { label: "Marketplaces", Icon: Store, radius: 1 },
-  { label: "Quick Commerce", Icon: Zap, radius: 1 },
-  { label: "Logistics", Icon: Truck, radius: 1 },
-  { label: "End-to-End", Icon: LayoutGrid, radius: 1 },
+  { label: "Store", Icon: ShoppingBag },
+  { label: "Ads", Icon: Megaphone },
+  { label: "SEO", Icon: Search },
+  { label: "Marketplaces", Icon: Store },
+  { label: "Quick Commerce", Icon: Zap },
+  { label: "Logistics", Icon: Truck },
+  { label: "End-to-End", Icon: LayoutGrid },
 ];
 
 interface OrbitDiagramProps {
   className?: string;
   size?: number;
+  /** Show channel names under each node. Off for small instances. */
+  labels?: boolean;
 }
 
-/** Literal orbit of the 7 channels around a central hub — the brand's visual metaphor. */
-export function OrbitDiagram({ className, size = 480 }: OrbitDiagramProps) {
+/**
+ * The 7 channels orbiting one hub — the brand's literal mechanism.
+ * Colours come from the surrounding section tone (--fg, --surface, --rule) so it works on any section.
+ */
+export function OrbitDiagram({ className, size = 480, labels = false }: OrbitDiagramProps) {
   const ref = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -36,70 +41,48 @@ export function OrbitDiagram({ className, size = 480 }: OrbitDiagramProps) {
     offset: ["start end", "end start"],
   });
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 90]);
-  const counterRotate = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 70]);
+  const counterRotate = useTransform(scrollYProgress, [0, 1], [0, -70]);
 
   const center = size / 2;
   const orbitRadius = size * 0.38;
+  const node = size * 0.13;
 
   return (
     <div
       ref={ref}
       className={className}
-      style={{ width: size, height: size, position: "relative" }}
+      style={{ width: size, height: size, position: "relative", maxWidth: "100%" }}
       aria-hidden="true"
     >
-      {/* orbit ring */}
-      <svg
-        width={size}
-        height={size}
-        viewBox={`0 0 ${size} ${size}`}
-        style={{ position: "absolute", inset: 0 }}
-      >
-        <circle
-          cx={center}
-          cy={center}
-          r={orbitRadius}
-          fill="none"
-          stroke="#1E2D4A"
-          strokeWidth={1}
-          strokeDasharray="4 6"
-        />
-        <circle cx={center} cy={center} r={orbitRadius * 0.55} fill="none" stroke="#1E2D4A" strokeWidth={1} opacity={0.5} />
+      <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`} style={{ position: "absolute", inset: 0 }}>
+        <circle cx={center} cy={center} r={orbitRadius} fill="none" stroke="var(--rule)" strokeWidth={1.5} />
+        <circle cx={center} cy={center} r={orbitRadius * 0.58} fill="none" stroke="var(--rule)" strokeWidth={1} />
       </svg>
 
-      {/* central hub */}
       <div
         style={{
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: size * 0.16,
-          height: size * 0.16,
+          width: size * 0.2,
+          height: size * 0.2,
           borderRadius: "50%",
-          background: "radial-gradient(circle, #FF6B2B 0%, #B8471C 100%)",
-          boxShadow: "0 0 40px rgba(255,107,43,0.5)",
+          background: "var(--accent)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "var(--font-display)",
-          fontWeight: 800,
-          fontSize: size * 0.045,
-          color: "white",
+          fontWeight: 600,
+          letterSpacing: "-0.03em",
+          fontSize: size * 0.055,
+          color: "var(--on-accent)",
         }}
       >
-        EO
+        You
       </div>
 
-      {/* orbiting channels */}
-      <motion.div
-        style={{
-          position: "absolute",
-          inset: 0,
-          rotate: prefersReducedMotion ? 0 : rotate,
-        }}
-      >
+      <motion.div style={{ position: "absolute", inset: 0, rotate: prefersReducedMotion ? 0 : rotate }}>
         {CHANNELS.map(({ label, Icon }, i) => {
           const angle = (i / CHANNELS.length) * Math.PI * 2 - Math.PI / 2;
           const x = center + orbitRadius * Math.cos(angle);
@@ -107,29 +90,37 @@ export function OrbitDiagram({ className, size = 480 }: OrbitDiagramProps) {
           return (
             <motion.div
               key={label}
-              title={label}
               style={{
                 position: "absolute",
-                top: y,
-                left: x,
+                top: `${(y / size) * 100}%`,
+                left: `${(x / size) * 100}%`,
                 transform: "translate(-50%, -50%)",
                 rotate: prefersReducedMotion ? 0 : counterRotate,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 6,
               }}
             >
               <div
                 style={{
-                  width: size * 0.11,
-                  height: size * 0.11,
+                  width: node,
+                  height: node,
                   borderRadius: "50%",
-                  background: "#111827",
-                  border: "1px solid #2A3F6A",
+                  background: "var(--surface)",
+                  color: "var(--fg)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <Icon size={size * 0.05} color="#00D4AA" />
+                <Icon size={node * 0.46} strokeWidth={1.6} />
               </div>
+              {labels && (
+                <span style={{ fontSize: 12, letterSpacing: "-0.01em", color: "var(--fg2)", whiteSpace: "nowrap" }}>
+                  {label}
+                </span>
+              )}
             </motion.div>
           );
         })}

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { CtaSection } from "@/components/cta-section";
@@ -19,34 +18,27 @@ export default function IndustriesIndexPage() {
         eyebrow="WE GO DEEP ON FOUR CATEGORIES"
         headline={
           <>
-            Not a Generalist.
-            <br />
-            <span style={{ color: "#FF6B2B" }}>A Specialist in Your World.</span>
+            Not a generalist. <span className="accent-text">A specialist in your world.</span>
           </>
         }
       />
-      <section className="section" style={{ background: "#0A0E1A" }}>
-        <div className="container mx-auto px-6">
-          <StaggerGroup className="grid md:grid-cols-2 gap-5">
+      <section className="section tone-light !pt-[clamp(32px,5vw,64px)]">
+        <div className="container">
+          <StaggerGroup className="grid gap-4 md:grid-cols-2">
             {industries.map((ind) => (
               <StaggerItem key={ind.slug}>
-                <Link href={`/industries/${ind.slug}`} className="card flex flex-col gap-4 no-underline group h-full">
-                  <span className="text-[11px] font-mono" style={{ color: "#FF6B2B" }}>{ind.eyebrow}</span>
-                  <h3 className="font-display font-600 text-[20px]" style={{ color: "#F0F4FF" }}>{ind.name}</h3>
-                  <p className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>{ind.heroSubheadline}</p>
-                  <div
-                    className="flex items-center gap-1.5 text-[13px] font-500 mt-auto transition-all duration-200 group-hover:gap-2.5"
-                    style={{ color: "#00D4AA" }}
-                  >
-                    Explore {ind.name} <ArrowRight size={14} />
-                  </div>
+                <Link href={`/industries/${ind.slug}`} className="card flex h-full flex-col gap-4">
+                  <span className="mono text-[12px]" style={{ color: "var(--link)" }}>{ind.eyebrow}</span>
+                  <h3 className="h3">{ind.name}</h3>
+                  <p className="small">{ind.heroSubheadline}</p>
+                  <span className="link-more mt-auto !text-[15px]">Explore {ind.name}</span>
                 </Link>
               </StaggerItem>
             ))}
           </StaggerGroup>
         </div>
       </section>
-      <CtaSection headline="Don't See Your Category?" subheadline="We still might be a fit — the free audit will tell you." />
+      <CtaSection headline="Don't see your category?" subheadline="We still might be a fit — the free audit will tell you." />
     </PageShell>
   );
 }

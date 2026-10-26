@@ -14,33 +14,29 @@ export default function ContactPage() {
     <PageShell>
       <PageHero
         eyebrow="LET'S TALK REVENUE"
-        headline="Tell Us What's Not Working. We'll Tell You Why."
+        headline="Tell us what's not working. We'll tell you why."
         subheadline="Fill this out, or email us directly — we respond within 24 hours."
       />
-      <section className="section" style={{ background: "#0A0E1A" }}>
-        <div className="container mx-auto px-6 grid lg:grid-cols-[1.2fr_1fr] gap-10 max-w-4xl">
-          <Reveal>
+      <section className="section tone-white !pt-[clamp(32px,5vw,64px)]">
+        <div className="container grid max-w-4xl gap-6 lg:grid-cols-[1.2fr_1fr]">
+          <Reveal className="card">
             <ContactForm />
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="card flex flex-col gap-6 h-fit">
+            <div className="card flex h-fit flex-col gap-6">
               <div>
-                <h3 className="font-display font-600 text-[16px] mb-2" style={{ color: "#F0F4FF" }}>
-                  Prefer to just talk?
-                </h3>
-                <p className="text-[14px] leading-relaxed" style={{ color: "#8B9CC8" }}>
-                  Email us directly and we&apos;ll get back to you within 24 hours.
-                </p>
+                <h3 className="h4 mb-2">Prefer to just talk?</h3>
+                <p className="small">Email us directly and we&apos;ll get back to you within 24 hours.</p>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-[11px] uppercase tracking-wider" style={{ color: "#4A5A7A" }}>Email</span>
-                <a href="mailto:connect@ecomorbit.in" className="text-[14px]" style={{ color: "#8B9CC8" }}>
+                <span className="caption">Email</span>
+                <a href="mailto:connect@ecomorbit.in" className="link-more w-fit">
                   connect@ecomorbit.in
                 </a>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-[11px] uppercase tracking-wider" style={{ color: "#4A5A7A" }}>Hours</span>
-                <span className="text-[14px]" style={{ color: "#8B9CC8" }}>Mon–Sat, 10am–7pm IST</span>
+                <span className="caption">Hours</span>
+                <span className="small" style={{ color: "var(--fg)" }}>Mon–Sat, 10am–7pm IST</span>
               </div>
             </div>
           </Reveal>

@@ -41,7 +41,7 @@ ecom-orbit-website/
 
 ### Before you write any code
 
-1. Read `agents_docs/design-system.md` for all visual decisions (colors, fonts, spacing, components)
+1. Read `DESIGN.md` (and `agents_docs/design-system.md`) for all visual decisions (colors, fonts, spacing, components)
 2. Read `agents_docs/content-copy.md` for the exact copy to use — do not invent or paraphrase headlines
 3. Read `agents_docs/page-structure.md` for section order, layout, and hierarchy
 
@@ -65,7 +65,7 @@ npm run preview    # preview production build locally
 
 | Task | Read first |
 |------|-----------|
-| Any UI component or styling | `agents_docs/design-system.md` |
+| Any UI component or styling | `DESIGN.md` |
 | Writing or editing copy | `agents_docs/content-copy.md` |
 | Adding or restructuring pages | `agents_docs/page-structure.md` |
 | Understanding services / case studies | `agents_docs/brand-context.md` |
@@ -75,8 +75,8 @@ npm run preview    # preview production build locally
 
 ## Non-negotiables
 
-- The primary color is **#FF6B2B** (orange). The background is **#0A0E1A** (dark navy). Do not substitute.
-- Font stack: **Syne** (headlines) + **DM Sans** (body) + **JetBrains Mono** (numbers/stats). Do not use Inter, Roboto, or system fonts.
+- The accent is the logo orange **#FF6B2B** — the only chromatic colour. Sections alternate **white (#fbfbfd) / light gray (#f5f5f7) / black (#000)**. See `DESIGN.md`. (Replaced the earlier dark-navy design in the 2026 redesign.)
+- Font stack: **SF Pro (via -apple-system) with Inter as web fallback** for all text, **JetBrains Mono** for numbers/stats. Do not use Syne, DM Sans or Roboto.
 - All stats and metrics use **JetBrains Mono** — this is a design decision, not a preference.
 - Primary CTA always reads **"Get Your Free Ecommerce Audit"**. Do not reword it. (The "Chat on WhatsApp" secondary CTA is currently disabled — see WhatsApp CTA note above.)
 - Take the brand logo from the Brand Assets folder.
@@ -89,7 +89,7 @@ npm run preview    # preview production build locally
 
 - **Copy changes** (headlines, CTAs, claims, positioning) → update `agents_docs/content-copy.md`
 - **Business facts** (contact email, live domain, differentiators, what's enabled/disabled, integration details) → update `agents_docs/brand-context.md` → "Live Status & Contact Facts"
-- **Design/visual system changes** → update `agents_docs/design-system.md`
+- **Design/visual system changes** → update `DESIGN.md`
 - **Sitemap/page additions or removals** → update `agents_docs/page-structure.md`
 - **Stack, env vars, deployment, third-party integrations** → update `agents_docs/tech-stack.md`
 - **Log every shipped change** — one line per change — in `agents_docs/CHANGELOG.md`, newest entry on top, with a one-line reason. This is the running record of what changed and why; keep it current rather than reconstructing it later.
