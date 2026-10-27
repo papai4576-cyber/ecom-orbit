@@ -8,7 +8,7 @@ import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 export const metadata: Metadata = {
   title: "About Ecom Orbit | India's 7-Channel Ecommerce Agency",
   description:
-    "Why Ecom Orbit exists, what we believe, and how we run every channel — store, ads, marketplaces, quick commerce & logistics — under one team.",
+    "Why Ecom Orbit exists, what we believe, and how we run every channel — store, ads, marketplaces, quick commerce & logistics.",
 };
 
 const principles = [

@@ -1,48 +1,65 @@
-# Design System — Ecom Orbit (2026 redesign)
+# Design System — Ecom Orbit (cinematic night, 2026-10-28)
 
-Apple-style structure, Ecom Orbit specifics. Direction chosen by the owner; the original Apple reference is kept in `agents_docs/reference-apple-design.md`. Source of truth in code: `src/app/globals.css`.
+Direction chosen by the owner from a reference (a dark, atmospheric product-launch page: full-bleed night scene, glass UI, big light-weight type, card rails). It replaces the earlier Apple-style white / gray / black system (that reference is kept in `agents_docs/reference-apple-design.md` for history only). Source of truth in code: `src/app/globals.css`.
 
 ## 1. Atmosphere
-Calm, confident, reductive. Large tight type on flat fields; section tone (not borders or shadows) creates rhythm. One accent: the logo orange. Trust comes from specifics and restraint, not effects.
+Night sky as the brand world: the logo is an orbit, so the site is a place you travel through. Deep navy-black field, a fixed starfield that drifts as you scroll, one warm light (the logo orange). Trust still comes from specifics: no fake imagery of people, no invented numbers. Visual interest comes from depth, light and motion built in code (no generated or stock imagery is used).
 
 ## 2. Colour
-Three section tones, set with `.tone-white`, `.tone-light`, `.tone-dark`. Components read CSS variables (`--bg --fg --fg2 --fg3 --surface --rule --link`) so one component works on any tone.
+Base `--night #03060d`. The class names `.tone-white / .tone-light / .tone-dark` are kept, but they are now three levels of night, not light/dark: **white = base (transparent, starfield shows through), light = lifted (white 2.6%), dark = deep (black 42%)**. Components read CSS variables (`--bg --fg --fg2 --fg3 --surface --rule --link`) so one component works on any tone.
 
-| Tone | Background | Text | Card surface |
-|---|---|---|---|
-| white | #fbfbfd | #1d1d1f | #f5f5f7 |
-| light | #f5f5f7 | #1d1d1f | #ffffff |
-| dark | #000000 | #f5f5f7 | #1d1d1f |
+| Token | Value |
+|---|---|
+| `--fg` | #f4f6fb |
+| `--fg2` / `--fg3` | 76% / 54% of #e2e9f8 |
+| `--surface` (card) | white 5.5–7% |
+| `--rule` | white 14% |
+| `--glass` / `--glass-edge` | white 6% / white 12% |
 
-Home rhythm: white → light → dark → white → dark → light → white → dark → light → white → dark → light (footer).
-
-Accent (the only chroma): `--accent #ff6b2b` for fills (always with `#1d1d1f` text, 5.9:1); `--accent-ink #c2410c` for orange text on light tones (4.7:1+); `--accent-bright #ff8a55` for orange text on black. No teal, no purple, no red/green status colours.
+Accent (the only brand chroma): `--accent #ff6b2b` for fills (always with `#1d1d1f` text); `--accent-bright #ff8a55` for orange text on night (links, eyebrows, emphasis words). The cool blue in the atmosphere (hazes, hero light shaft) is the logo's navy lit up: it is background light, never a UI colour. No teal, purple, red/green status colours.
 
 ## 3. Typography
-- Sans: `-apple-system, "SF Pro Display/Text"`, fallback **Inter** (next/font) on Android/Windows. Weights 400/500/600 only.
+- Sans: `-apple-system, "SF Pro Display/Text"`, fallback **Inter** (next/font, weights 300/400/500/600). **Display and h2 are weight 300** (light, tight tracking), h3 400, h4 500, body 400. Emphasis in a headline is the orange-bright colour, not bold.
 - Mono: **JetBrains Mono** for every stat, price and metric (`.stat-value`, `.mono`).
-- Tight tracking at all sizes. Classes: `.display` (42–92px, 1.04), `.h2` (32–56px, 1.07), `.h3` (24–32px), `.h4` (21px), `.lead` (19–24px), `.body` (17px), `.small` (14px), `.caption` (12px).
-- `.eyebrow`: 14px/600 in `--link`. Body copy left-aligned; only headlines and section heads centre.
+- Classes: `.display` (42–96px, 1.02), `.h2` (32–58px), `.h3`, `.h4`, `.lead`, `.body`, `.small`, `.caption`, `.eyebrow`.
 
 ## 4. Components
-- **Primary CTA** `.btn-primary`: 980px pill, orange fill, dark text, 48px min height, label always "Get Your Free Ecommerce Audit" (nav uses the short "Get Free Audit").
-- **Secondary** `.btn-secondary`: pill outline in `--link`. **Inline** `.link-more`: text + "›".
-- **Card** `.card`: 12px radius, no border, no shadow; elevation by tone contrast. Featured pricing tier flips to `.tone-dark`.
-- **Nav**: light glass (`rgba(251,251,253,.8)` + blur 20), 60px. Light because the master logo has a light backdrop; `.logo-crop` crops and multiplies it.
-- **Footer**: light gray, small links, hairline rule.
-- **Form fields** `.field`: white, 12px radius, orange focus ring.
-- **Hero signature**: `OrbitDiagram` (7 channels around "You") on a plain field, cropped by the section edge. Also used small in the Problem section next to `ScatterDiagram`.
+- **Nav**: two floating glass pills on a top scrim (logo chip left, link pill centre, orange "Get Free Audit" right); on mobile the logo plus a round glass menu button. Services dropdown is dark glass. The logo is `public/logo-reversed.png`: the master logo (`Brand Assets/Brand_logo.png`, untouched) with its backdrop removed and the navy recoloured to the site's light foreground; shapes and the orange are unchanged.
+- **Primary CTA** `.btn-primary`: 980px pill, orange fill, dark text, glow on hover, label always "Get Your Free Ecommerce Audit" (nav uses the short "Get Free Audit"). **Secondary** `.btn-secondary`: glass pill. **Inline** `.link-more`.
+- **Card** `.card`: 20px radius, 1px white-9% border, translucent surface, pointer-following orange highlight on hover (`PointerGlow`). **`.glass`** is the heavier blurred surface for nav, hero rail and floating UI; blur is used sparingly for performance.
+- **Section heads** carry a soft blue haze behind them.
+- **Mobile rails** `.rail`: card grids (services, industries) become swipe carousels under 768px.
+- **Mobile sticky CTA** (`StickyCta`): glass-free orange pill pinned to the bottom after the hero; hidden near the footer and on `/contact`, `/free-audit`.
+- **Form fields** `.field`: translucent, light text, orange focus ring.
 
-## 5. Depth
-Flat by default. The one shadow is the services dropdown (`rgba(0,0,0,.22) 3px 5px 30px`). No glows, gradients, textures or grid backgrounds.
+## 5. Scenes and motion (the visual layer)
+- **Starfield** (`motion/starfield.tsx`): fixed canvas, ~220 stars on 3 depth layers, twinkle and scroll parallax, two colour hazes. Static under reduced motion; paused when the tab is hidden.
+- **Hero** (`hero.tsx`), minimal pass: headline (orange emphasis phrase), one line, one button + a quiet link, and the **Orbit Scene** as the whole picture (`motion/orbit-scene.tsx`: 7 channel orbs on a tilted ellipse around a glowing "You" hub, with depth: size, brightness, back-orb blur, occlusion; plus a comet of sparks riding the ring). The scene tilts toward the mouse and rises on scroll; copy drifts up and softens. Four stats sit on one quiet mono line under it. No badge, no paragraph, no cards. Modelled on Linear / Raycast / Resend / Vercel heroes: short headline, at most two lines of support, one dominant object.
+- **Orbit Scrub** (`orbit-scrub.tsx`): the one pinned-scroll section. Scroll turns the orbit so each channel reaches the top spoke in turn while the copy swaps. Do not add other pinned sections.
+- **Process timeline**: step rules draw in orange on entry. Other sections use `Reveal` / `StaggerGroup`, count-up and bar-grow.
+- All motion respects `prefers-reduced-motion`.
 
-## 6. Motion
-Framer Motion reveal-on-scroll (`Reveal`, `StaggerGroup`), count-up stats, orbit rotates with scroll, bars grow into view. All respect `prefers-reduced-motion`. No ticker, no pinned scroll.
+## 5b. Section vocabulary (homepage, 2026-10-28 minimal pass)
+Every homepage section is a different kind of object, with one line of copy and one visual. Headlines are a bright line plus a dimmed second line (`text-[var(--fg3)]`). Do not go back to "eyebrow + headline + paragraph + card grid".
 
-## 7. Do / Don't
+| Section | Object |
+|---|---|
+| Orbit Scrub | pinned orbit that walks the 7 channels |
+| Statement (`statement.tsx`) | one huge left-aligned sentence, words light up on scroll, before/after diagram |
+| Platform marquee (`platform-marquee.tsx`) | oversized outlined platform names drifting in two rows, no copy |
+| Industry rail (`industry-rail.tsx`) | horizontal rail of tall cards: icon, one number, one name |
+| Process path (`process-path.tsx`) | a line that fills as you scroll through 5 stops |
+| Proof bento (`proof-bento.tsx`) | quick commerce 10-min ring, self-ticking marketplace checklist, two big numbers |
+| Pricing | three open columns split by hairlines; the featured plan on glass |
+| Final CTA | one sentence, one button, rings pulsing outward |
+
+## 6. Do / Don't
 - Do keep every claim checkable; stats stay in JetBrains Mono; use ₹, lakhs, crores.
-- Don't add a second accent colour, emoji, coloured badges, borders on cards, gradients, or radii over 12px (pills excepted).
+- Do keep the starfield as the only page-level backdrop; add depth with haze, glass and parallax, not imagery.
+- Don't add a section that is a heading + paragraph + grid of text cards; pick a new object from 5b or reuse one. Keep each section to a line or two of copy.
+- Don't add a second accent colour, emoji, fake photos of people, fake testimonials or logos.
+- Don't put blur (`backdrop-filter`) on lists of cards; use `.card` (no blur), reserve `.glass`.
 - Don't add the WhatsApp CTA back (disabled site-wide).
 
-## 8. Responsive
-Mobile-first. Single column under 768px; 2-col at md, 3-col at lg for card grids. Section padding `clamp(72px,10vw,128px)`; side padding `clamp(20px,5vw,48px)`. Touch targets ≥44px.
+## 7. Responsive
+Mobile-first. Single column under 768px with swipe rails; 2-col at md, 3-col at lg for card grids. Section padding `clamp(72px,10vw,128px)`; side padding `clamp(20px,5vw,48px)`. Touch targets ≥44px. The orbit scene keeps its ellipse and hides channel labels under 768px.

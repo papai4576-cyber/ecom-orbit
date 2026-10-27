@@ -41,6 +41,9 @@ Each section has a background variant to create visual rhythm. Alternate between
 | 1 | Navigation | Sticky, blur backdrop | "Get Free Audit" button |
 | 2 | Hero | bg-primary + orange radial glow | "Get Your Free Ecommerce Audit" |
 | 3 | Metrics Ticker | Dark band (#0D1120) | — |
+| 3b | **Homepage minimal pass (2026-10-28):** after the Orbit Scrub the order is Statement → Platform marquee → Industry rail → Process path → Proof bento (QC + marketplaces) → Pricing → Final CTA. The old Multi-Channel, Services Grid, Problem, Industry Verticals, Process Timeline, QC Spotlight and Marketplace Spotlight sections are gone (the 7 services live in the Orbit Scrub, each linking to its page). See `DESIGN.md` 5b. | — | — |
+| 2a | Hero facts rail (the 4 stats, glass cards at the base of the Hero; replaced the old Stats Strip row) | tone-white | — |
+| 3a | **Orbit Scrub** (added 2026-10-28; sits directly under Hero, dark, pinned scroll, 7 channels → service pages) | tone-dark | each channel → its service page |
 | 4 | Multi-Channel Reality | bg-secondary | "See How Multi-Channel Works →" |
 | 5 | Stats Strip | bg-primary | — |
 | 6 | Services Grid | bg-primary | Each card → service page |

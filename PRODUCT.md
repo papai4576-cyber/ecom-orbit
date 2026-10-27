@@ -35,7 +35,7 @@ Platforms the team works on: Shopify, WooCommerce, Meta, Google, Amazon India, F
 ## Brand Commitments
 
 - The existing logo (Brand Assets/Brand_logo.png, orange) stays unchanged.
-- The redesign follows the Apple-style direction described in DESIGN.md (black and light-gray section rhythm, large tight type, single accent, pill CTAs), as confirmed by the user. Stats stay in JetBrains Mono.
+- The design follows the cinematic night direction in DESIGN.md (starfield, orbit scenes, glass UI, light-weight type, single orange accent), set by the owner from a reference on 2026-10-28; it replaced the earlier Apple-style direction. Stats stay in JetBrains Mono.
 - Voice: direct, confident, India-native; "a sharp, experienced friend who runs an ecommerce agency". Avoid "world-class", "cutting-edge", "leverage synergies".
 
 ## Evidence on Hand

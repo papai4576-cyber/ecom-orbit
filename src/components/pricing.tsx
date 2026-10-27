@@ -1,107 +1,72 @@
 "use client";
 
 import Link from "next/link";
-import { Check } from "lucide-react";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 
 const tiers = [
   {
     name: "Starter",
-    tagline: "For brands just launching",
     price: "₹49,999",
     period: "one-time",
-    features: [
-      "Complete Shopify store setup",
-      "1 marketplace onboarding (Amazon or Flipkart)",
-      "Mobile-first, GST-ready, Razorpay integrated",
-      "90+ PageSpeed guarantee",
-      "30-day post-launch support",
-      "Free ecommerce audit included",
-    ],
+    features: ["Shopify store setup", "1 marketplace onboarding", "90+ PageSpeed, GST-ready", "30-day post-launch support"],
     cta: "Get Started",
     popular: false,
   },
   {
     name: "Growth",
-    tagline: "For brands scaling revenue",
     price: "₹99,999",
     period: "/month",
-    features: [
-      "Everything in Starter",
-      "2 marketplace accounts managed",
-      "Meta + Google performance marketing",
-      "SEO & content (4 posts/month)",
-      "Monthly revenue report",
-      "Dedicated account manager",
-    ],
-    cta: "Most Popular — Start Here",
+    features: ["Everything in Starter", "2 marketplaces managed", "Meta + Google ads, SEO", "Monthly revenue report"],
+    cta: "Start Here",
     popular: true,
   },
   {
     name: "Scale",
-    tagline: "Full ecommerce orchestration",
     price: "₹1,99,999",
     period: "/month",
-    features: [
-      "Everything in Growth",
-      "All 7 channels managed",
-      "Quick commerce onboarding + management",
-      "Logistics & COD optimization",
-      "Weekly strategy calls",
-      "Real-time dashboard access",
-      "Priority support (24-hour response)",
-    ],
+    features: ["Everything in Growth", "All 7 channels", "Quick commerce + logistics", "Weekly strategy calls", "24-hour priority support"],
     cta: "Let's Build Your Orbit",
     popular: false,
   },
 ];
 
+/** Three open columns split by hairlines (no cards): the plan you'd pick is lifted on glass. */
 export function Pricing() {
   return (
-    <section className="section tone-white">
+    <section className="section tone-light">
       <div className="container">
         <Reveal className="section-head">
-          <span className="eyebrow">Transparent Pricing in an Industry That Hides It</span>
           <h2 className="h2">
-            No &ldquo;custom quote&rdquo; games. <span className="accent-text">Know what you&apos;re getting.</span>
+            Pricing, in the open. <span className="text-[var(--fg3)]">No custom-quote games.</span>
           </h2>
         </Reveal>
 
-        <StaggerGroup className="mb-10 grid items-stretch gap-4 md:grid-cols-3">
+        <StaggerGroup className="grid items-stretch gap-4 md:grid-cols-3 md:gap-0 md:divide-x md:divide-white/10" staggerDelay={0.08}>
           {tiers.map((tier) => (
-            <StaggerItem key={tier.name}>
-              {/* The featured tier flips to the dark tone: contrast does the emphasis, not a border or glow */}
-              <div className={`card flex h-full flex-col gap-6 ${tier.popular ? "tone-dark" : ""}`}>
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="h3">{tier.name}</h3>
-                    {tier.popular && (
-                      <span className="caption" style={{ color: "var(--link)" }}>
-                        Most popular
-                      </span>
-                    )}
+            <StaggerItem key={tier.name} className="md:[&:first-child>div]:pl-0 md:[&:last-child>div]:pr-0">
+              <div
+                className={`relative flex h-full flex-col gap-8 rounded-[20px] p-6 md:rounded-none md:px-8 md:py-4 ${
+                  tier.popular ? "glass md:rounded-[20px] md:py-8" : ""
+                }`}
+              >
+                {tier.popular && <span className="absolute inset-x-8 top-0 h-px bg-[var(--accent)]" aria-hidden="true" />}
+                <div className="flex flex-col gap-2">
+                  <span className="mono text-[13px] text-[var(--fg2)]">{tier.name}</span>
+                  <div className="flex items-end gap-2">
+                    <span className="stat-value text-[clamp(34px,4vw,44px)]">{tier.price}</span>
+                    <span className="caption pb-1">{tier.period}</span>
                   </div>
-                  <p className="small">{tier.tagline}</p>
-                </div>
-
-                <div className="flex items-end gap-2">
-                  <span className="stat-value text-[clamp(32px,4vw,40px)]">{tier.price}</span>
-                  <span className="caption pb-1">{tier.period}</span>
                 </div>
 
                 <ul className="flex flex-1 flex-col gap-3">
                   {tier.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                      <Check size={16} className="mt-1 shrink-0" style={{ color: "var(--link)" }} />
-                      <span className="small" style={{ color: "var(--fg)" }}>{f}</span>
+                    <li key={f} className="small border-b pb-3" style={{ color: "var(--fg)", borderColor: "var(--rule)" }}>
+                      {f}
                     </li>
                   ))}
                 </ul>
 
-                <Link
-                  href="/contact"
-                  className={tier.popular ? "btn-primary" : "btn-secondary"}
-                >
+                <Link href="/contact" className={tier.popular ? "btn-primary" : "btn-secondary"}>
                   {tier.cta}
                 </Link>
               </div>
@@ -110,9 +75,7 @@ export function Pricing() {
         </StaggerGroup>
 
         <Reveal>
-          <p className="caption text-center">
-            All plans include GST invoicing, no hidden charges, and month-to-month flexibility — no 6-month lock-ins.
-          </p>
+          <p className="caption mt-10 text-center">GST invoicing. No hidden charges. No lock-ins.</p>
         </Reveal>
       </div>
     </section>

@@ -21,10 +21,10 @@ export default function ServicesIndexPage() {
         eyebrow="OUR SERVICES"
         headline={
           <>
-            Everything your ecommerce brand needs. <span className="accent-text">Every channel.</span> One team.
+            Everything your ecommerce brand needs. <span className="accent-text">Every channel.</span>
           </>
         }
-        subheadline="Seven services. One team. Pick what you need, or let us run all of it."
+        subheadline="Seven services. Pick what you need, or let us run all of it."
       />
       <section className="section tone-light !pt-[clamp(32px,5vw,64px)]">
         <div className="container">

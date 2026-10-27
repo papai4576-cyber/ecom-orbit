@@ -3,40 +3,36 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 
-const trustItems = [
-  "Response within 24 hours",
-  "India-focused expertise",
-  "No vanity metrics, only revenue",
-];
-
+/** Closing: one sentence, one button, rings pulsing outward from behind them. */
 export function FinalCta() {
   return (
-    <section className="section tone-dark">
-      <div className="container">
-        <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-7 text-center">
-          <span className="eyebrow">Let&apos;s Build Your Ecommerce Orbit</span>
+    <section className="section tone-dark relative flex min-h-[78svh] items-center overflow-hidden">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        {[0, 1.8, 3.6].map((delay) => (
+          <span
+            key={delay}
+            className="ring-loop absolute left-1/2 top-1/2 aspect-square w-[min(120vw,980px)] rounded-full border"
+            style={{
+              borderColor: delay === 0 ? "rgba(255,138,85,0.35)" : "rgba(255,255,255,0.12)",
+              animation: `ring-pulse 7s ${delay}s ease-out infinite`,
+            }}
+          />
+        ))}
+        <span
+          className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{ background: "radial-gradient(closest-side, rgba(255,107,43,0.2), transparent)" }}
+        />
+      </div>
 
-          <h2 className="display !text-[clamp(38px,7vw,76px)]">
+      <div className="container relative">
+        <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
+          <h2 className="display !text-[clamp(38px,7vw,80px)]">
             Ready to stop leaving <span className="accent-text">revenue on the table?</span>
           </h2>
-
-          <p className="lead max-w-[600px]">
-            Get a free, no-obligation ecommerce audit. We&apos;ll analyze your store, ad accounts, marketplace
-            listings, and logistics — and show you exactly where the growth opportunities are. No commitment. No hard
-            sell. Just honest insights from people who live and breathe Indian ecommerce.
-          </p>
-
           <Link href="/contact" className="btn-primary">
             Get Your Free Ecommerce Audit
           </Link>
-
-          <ul className="mt-2 flex flex-wrap justify-center gap-x-8 gap-y-2">
-            {trustItems.map((item) => (
-              <li key={item} className="caption">
-                {item}
-              </li>
-            ))}
-          </ul>
+          <p className="caption">Free. No commitment. We reply within 24 hours.</p>
         </Reveal>
       </div>
     </section>

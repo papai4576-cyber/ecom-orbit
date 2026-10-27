@@ -27,8 +27,8 @@ export function Footer() {
       <div className="container">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-4">
-            <Link href="/" className="logo-crop" aria-label="Ecom Orbit home">
-              <Image src="/logo.png" alt="Ecom Orbit" width={1120} height={928} />
+            <Link href="/" className="inline-block" aria-label="Ecom Orbit home">
+              <Image src="/logo-reversed.png" alt="Ecom Orbit" width={845} height={350} className="h-[52px] w-auto" />
             </Link>
             <p className="small max-w-[28ch]">
               India&apos;s 7-channel ecommerce partner. We build, market, and scale online brands across every

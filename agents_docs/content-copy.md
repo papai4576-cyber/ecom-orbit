@@ -40,6 +40,44 @@ That Actually Sells.
 
 ---
 
+## Message rule: one idea per place (2026-10-28)
+
+The "one team / one system" idea is told **twice on the site and nowhere else**: the homepage Statement ("5 vendors, 0 system" → "1 team, 1 system", the problem and its answer) and the End-to-End service page (it is that offer). Every other place gets its own idea: Hero = what we do and who for; Orbit Scrub = coverage ("Every place your customers buy"); Industry rail = category fit; Process = a clear path; Bento = two under-used channels; Pricing = openness; Final CTA = the free audit. Services index, About meta and the nav no longer say "one team". When writing new copy, ask what this section says that no other section says.
+
+---
+
+## Hero (current, 2026-10-28)
+
+- **Headline (unchanged):** "Your Business Deserves a Store That *Actually Sells.*" (emphasis phrase in orange)
+- **One line:** "Stores, marketplaces and quick commerce for Indian brands." (what we do and who for; the "one team" idea is deliberately NOT here, see the rule below)
+- **CTAs:** primary "Get Your Free Ecommerce Audit"; quiet link "Explore services".
+- **Stats line:** 2 founders · 7 channels · 3.5X avg ROAS · 90+ PageSpeed.
+- **Removed from the hero:** the "India's 7-Channel Ecommerce Agency" pill, the "five vendors blaming each other" paragraph (that idea now lives in the Statement section), and the "Specialists in Shopify & WooCommerce · Meta & Google Ads · Amazon & Flipkart · Quick Commerce" caption (platform names now live in the marquee).
+
+---
+
+## Homepage minimal pass (2026-10-28): current live copy, supersedes the older homepage section entries below
+
+Owner asked for less text and a different look per section. Each section is one line of copy plus one visual; headlines are a bright line and a dimmed line. Older per-section entries further down (Multi-Channel, Services Grid, Problem, Industry Verticals, Process, QC/Marketplace Spotlights, Pricing, Final CTA) describe the previous version and are kept for history only.
+
+- **Statement:** "You're the unpaid project manager of your own ecommerce operation." Diagram captions: "5 vendors, 0 system" → "1 team, 1 system".
+- **Platform marquee (names only):** Shopify, WooCommerce, Meta Ads, Google Ads, SEO, Shiprocket, Delhivery / Amazon, Flipkart, Meesho, Myntra, Nykaa, Blinkit, Zepto, Instamart. No partner or certification claims.
+- **Industry rail:** "Built for your category. *Not everyone's.*" One number per card from the industry pages: Fashion & Apparel <20% (our target return rate); Beauty & Personal Care 60–80% (typical gross margins); Food & FMCG 48%+ (repeat purchase rate); Offline → Online 30 days (to launch on every channel).
+- **Process path:** "From audit to ₹1Cr/month. *One step at a time.*" Free audit (Day 1–3) · Strategy (Day 4–7) · Build & launch (Week 2–4) · Grow (Month 2+) · Scale (Month 4+), one short line each. CTA link: "Start with a free audit".
+- **Proof bento:** "Quick commerce. Marketplaces. *Where growth hides.*" Tiles: "Be on the shelf where orders arrive in 10 minutes." (link: Free viability assessment) · "Listed isn't winning." with A+ Content / Sponsored Products / Brand Registry / ACOS under 18% (link: Free marketplace audit) · "₹240 average quick-commerce order" · "<18% ACOS target on Amazon".
+- **Pricing:** "Pricing, in the open. *No custom-quote games.*" Starter ₹49,999 one-time; Growth ₹99,999/month; Scale ₹1,99,999/month, four or five short feature lines each. **Dropped "Dedicated account manager"** from Growth because it contradicts the founder-led, no-account-managers positioning. Footer line: "GST invoicing. No hidden charges. No lock-ins."
+- **Final CTA:** "Ready to stop leaving *revenue on the table?*" + button "Get Your Free Ecommerce Audit" + "Free. No commitment. We reply within 24 hours."
+- **Removed from the homepage (still true, just not shown):** India QC market size/CAGR/ad-spend figures, platform market-share lines, "213M+ users", "13M+ kiranas", Avg ROAS ranges per industry. Re-add only with a source.
+
+---
+
+## Orbit Scrub Section (added 2026-10-28)
+
+**Eyebrow:** "Seven channels" · **Headline:** "Every place your customers buy." · Pinned scroll stage directly under the Hero. (Idea: coverage.)
+**Per-channel copy** (labels: Store, Ads, SEO, Marketplaces, Quick Commerce, Logistics, End-to-End): reuses each service's `shortDescription` from `src/data/services.ts`, so it stays in sync with the service pages. The End-to-End line is custom (the data version mentions WhatsApp, which is disabled): "Website, marketplaces, quick commerce and logistics, run together and reported monthly. You focus on your product." Each channel links "See how we run it" to its `/services/[slug]` page. No stats, no invented claims.
+
+---
+
 ## Multi-Channel Reality Section
 
 **Eyebrow:** "THE PROBLEM WITH ONE-CHANNEL THINKING"

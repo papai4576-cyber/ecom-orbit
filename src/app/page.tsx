@@ -1,13 +1,11 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
-import { MultiChannel } from "@/components/multi-channel";
-import { StatsStrip } from "@/components/stats-strip";
-import { ServicesGrid } from "@/components/services-grid";
-import { ProblemSection } from "@/components/problem-section";
-import { IndustryVerticals } from "@/components/industry-verticals";
-import { ProcessTimeline } from "@/components/process-timeline";
-import { QcSpotlight } from "@/components/qc-spotlight";
-import { MarketplaceSpotlight } from "@/components/marketplace-spotlight";
+import { OrbitScrub } from "@/components/orbit-scrub";
+import { Statement } from "@/components/statement";
+import { PlatformMarquee } from "@/components/platform-marquee";
+import { IndustryRail } from "@/components/industry-rail";
+import { ProcessPath } from "@/components/process-path";
+import { ProofBento } from "@/components/proof-bento";
 import { Pricing } from "@/components/pricing";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
@@ -18,14 +16,12 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero />
-        <MultiChannel />
-        <StatsStrip />
-        <ServicesGrid />
-        <ProblemSection />
-        <IndustryVerticals />
-        <ProcessTimeline />
-        <QcSpotlight />
-        <MarketplaceSpotlight />
+        <OrbitScrub />
+        <Statement />
+        <PlatformMarquee />
+        <IndustryRail />
+        <ProcessPath />
+        <ProofBento />
         <Pricing />
         <FinalCta />
       </main>

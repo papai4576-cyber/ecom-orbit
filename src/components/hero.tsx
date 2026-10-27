@@ -1,42 +1,79 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { OrbitDiagram } from "@/components/motion/orbit-diagram";
+import { useRef } from "react";
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { OrbitScene } from "@/components/motion/orbit-scene";
+import { CountUp } from "@/components/motion/count-up";
 
-const specialties = [
-  "Shopify & WooCommerce",
-  "Meta & Google Ads",
-  "Amazon & Flipkart",
-  "Quick Commerce",
+const stats = [
+  { value: 2, suffix: "", label: "founders" },
+  { value: 7, suffix: "", label: "channels" },
+  { value: 3.5, suffix: "X", decimals: 1, label: "avg ROAS" },
+  { value: 90, suffix: "+", label: "PageSpeed" },
 ];
 
+const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
+/**
+ * Hero: a headline, one line, one button, and the orbit as the whole picture.
+ * The scene tilts toward the pointer and rises on scroll; everything else stays out of its way.
+ */
 export function Hero() {
   const reduce = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -80]);
+  const copyOpacity = useTransform(scrollYProgress, [0, 0.5], [1, reduce ? 1 : 0.1]);
+  const sceneY = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
+  const sceneScale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.08]);
+
+  // Pointer parallax (mouse only): the scene turns a few degrees toward the cursor.
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const sx = useSpring(px, { stiffness: 60, damping: 18 });
+  const sy = useSpring(py, { stiffness: 60, damping: 18 });
+  const rotateY = useTransform(sx, [-1, 1], [-6, 6]);
+  const rotateX = useTransform(sy, [-1, 1], [5, -5]);
+  const onMove = (e: React.PointerEvent) => {
+    if (reduce || e.pointerType !== "mouse") return;
+    const r = e.currentTarget.getBoundingClientRect();
+    px.set(((e.clientX - r.left) / r.width) * 2 - 1);
+    py.set(((e.clientY - r.top) / r.height) * 2 - 1);
+  };
+
   const rise = (delay: number) => ({
-    initial: reduce ? false : { opacity: 0, y: 20 },
+    initial: reduce ? false : { opacity: 0, y: 22 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+    transition: { duration: 0.8, delay, ease },
   });
 
   return (
-    <section className="tone-white relative overflow-hidden px-5 pb-0 pt-[104px] sm:px-8 sm:pt-[128px]">
-      <div className="container flex flex-col items-center text-center">
-        <motion.span {...rise(0)} className="eyebrow">
-          India&apos;s 7-Channel Ecommerce Agency
-        </motion.span>
+    <section
+      ref={ref}
+      onPointerMove={onMove}
+      className="tone-white relative overflow-hidden px-5 pt-[104px] sm:px-8 sm:pt-[124px]"
+    >
+      {/* Atmosphere: a cool shaft of light from the top, a warm glow where the orbit sits */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(55% 42% at 50% -5%, rgba(96, 140, 220, 0.34), transparent 70%), radial-gradient(46% 30% at 50% 66%, rgba(255, 107, 43, 0.12), transparent 70%)",
+        }}
+      />
 
-        <motion.h1 {...rise(0.08)} className="display mt-4 max-w-[14ch] sm:max-w-[16ch]">
-          Your Business Deserves a Store That Actually Sells.
+      <motion.div style={{ y: copyY, opacity: copyOpacity }} className="container relative z-10 flex flex-col items-center text-center">
+        <motion.h1 {...rise(0)} className="display max-w-[16ch] !text-[clamp(40px,5.6vw,76px)] sm:max-w-[24ch]">
+          Your Business Deserves a Store That <span className="accent-text">Actually Sells.</span>
         </motion.h1>
 
-        <motion.p {...rise(0.18)} className="lead mt-6 max-w-[640px]">
-          One team runs your Shopify store, your Amazon and Meesho accounts, and your Blinkit and Zepto listings —
-          instead of <strong className="font-semibold text-[var(--fg)]">five vendors blaming each other</strong> when
-          a launch goes sideways.
+        <motion.p {...rise(0.12)} className="lead mt-5 max-w-[520px]">
+          Stores, marketplaces and quick commerce for Indian brands.
         </motion.p>
 
-        <motion.div {...rise(0.28)} className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
+        <motion.div {...rise(0.22)} className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:gap-7">
           <Link href="/contact" className="btn-primary">
             Get Your Free Ecommerce Audit
           </Link>
@@ -44,24 +81,43 @@ export function Hero() {
             Explore services
           </Link>
         </motion.div>
+      </motion.div>
 
-        <motion.p {...rise(0.38)} className="caption mt-8 max-w-[520px]">
-          Specialists in {specialties.join(" · ")}
-        </motion.p>
-
-        {/* The product shot: seven channels, one team, drawn on a plain field and cropped by the section edge */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 flex w-full justify-center sm:mt-16"
-          style={{ height: "clamp(260px, 46vw, 440px)", overflow: "hidden" }}
-        >
-          <div className="shrink-0">
-            <OrbitDiagram size={680} labels className="!max-w-none scale-[0.56] origin-top sm:scale-[0.8] lg:scale-100" />
-          </div>
+      {/* The picture: the whole mechanism, big, tilting with the pointer */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, scale: 0.94 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.1, delay: 0.3, ease }}
+        className="relative z-0 mt-6 sm:-mt-2"
+        style={{ perspective: 1400 }}
+      >
+        <motion.div style={{ y: sceneY, scale: sceneScale, rotateX, rotateY }}>
+          <OrbitScene />
         </motion.div>
-      </div>
+      </motion.div>
+
+      {/* Four numbers on one quiet line instead of a row of cards */}
+      <motion.ul
+        initial={reduce ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="container relative z-10 -mt-2 flex flex-wrap items-baseline justify-center gap-x-9 gap-y-3 pb-14 sm:-mt-6 sm:gap-x-14 sm:pb-20"
+      >
+        {stats.map((s) => (
+          <li key={s.label} className="flex items-baseline gap-2">
+            <CountUp
+              value={s.value}
+              suffix={s.suffix}
+              decimals={s.decimals ?? 0}
+              className="stat-value"
+              style={{ fontSize: "clamp(22px, 2.6vw, 30px)" }}
+              duration={1.6}
+            />
+            <span className="caption">{s.label}</span>
+          </li>
+        ))}
+      </motion.ul>
     </section>
   );
 }

@@ -75,8 +75,8 @@ npm run preview    # preview production build locally
 
 ## Non-negotiables
 
-- The accent is the logo orange **#FF6B2B** — the only chromatic colour. Sections alternate **white (#fbfbfd) / light gray (#f5f5f7) / black (#000)**. See `DESIGN.md`. (Replaced the earlier dark-navy design in the 2026 redesign.)
-- Font stack: **SF Pro (via -apple-system) with Inter as web fallback** for all text, **JetBrains Mono** for numbers/stats. Do not use Syne, DM Sans or Roboto.
+- The accent is the logo orange **#FF6B2B** — the only chromatic UI colour. The site is a **cinematic night theme**: deep navy-black base (#03060d), fixed starfield, glass surfaces, light-weight display type. See `DESIGN.md`. (Replaced the Apple-style white/gray/black system on 2026-10-28, per the owner's reference.)
+- Font stack: **SF Pro (via -apple-system) with Inter as web fallback** for all text (display and h2 in weight 300), **JetBrains Mono** for numbers/stats. Do not use Syne, DM Sans or Roboto.
 - All stats and metrics use **JetBrains Mono** — this is a design decision, not a preference.
 - Primary CTA always reads **"Get Your Free Ecommerce Audit"**. Do not reword it. (The "Chat on WhatsApp" secondary CTA is currently disabled — see WhatsApp CTA note above.)
 - Take the brand logo from the Brand Assets folder.

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Starfield } from "@/components/motion/starfield";
+import { PointerGlow } from "@/components/motion/pointer-glow";
+import { StickyCta } from "@/components/sticky-cta";
 
 // Inter stands in for SF Pro wherever -apple-system isn't available (Android, Windows).
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -44,7 +47,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Starfield />
+        <PointerGlow />
+        {children}
+        <StickyCta />
+      </body>
     </html>
   );
 }
