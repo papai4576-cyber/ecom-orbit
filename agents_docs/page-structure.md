@@ -32,6 +32,23 @@
 
 ---
 
+## Inner pages (minimal pass, 2026-10-28)
+
+Every inner page opens with the shared `PageHero` (left-aligned light headline, one line, one button, optional `OrbitMark` picture on the right) and then uses a different layout per section from `components/page/` (see `DESIGN.md` 5c). Copy lives in `src/data/*.ts`; each service has a `tagline` and `stats`, each industry a `tagline` and `stat`.
+
+| Page | Sections |
+|---|---|
+| `/services` | hero → interactive `LinkRows` list (name + tagline) → CTA |
+| `/services/[slug]` | hero + OrbitMark → "Sound familiar?" `StrikeList` → approach as `LitText` → "What's included" `PillCloud` → `StatRow` → `FaqList` accordion → `NextUp` next service → CTA |
+| `/industries` | hero → 2×2 icon tiles (stat + name + tagline) → CTA |
+| `/industries/[slug]` | hero + OrbitMark → sticky "What we handle" + `TickRows` → `StatRow` → `NextUp` → CTA |
+| `/about` | hero → story as `LitText` → principles as title/one-line rows → operators line + `StatRow` → CTA |
+| `/blog`, `/blog/[slug]` | `LinkRows` of titles; article in a 720px reading column + `NextUp` next post |
+| `/contact`, `/free-audit` | split: headline + one line + details (or a `TickRows` checklist) on the left, glass form on the right |
+| `/privacy-policy`, `/terms-of-service` | minimal hero + plain reading column (legal text unchanged) |
+
+---
+
 ## Homepage Section Order
 
 Each section has a background variant to create visual rhythm. Alternate between `bg-primary` (#0A0E1A) and `bg-secondary` (#111827).

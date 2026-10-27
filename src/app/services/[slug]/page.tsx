@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, X } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { CtaSection } from "@/components/cta-section";
-import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
+import { OrbitMark } from "@/components/page/orbit-mark";
+import { serviceIcons } from "@/components/page/icons";
+import { StrikeList, PillCloud } from "@/components/page/blocks";
+import { FaqList, StatRow, NextUp } from "@/components/page/static-blocks";
+import { LitText } from "@/components/motion/lit-text";
+import { Reveal } from "@/components/motion/reveal";
 import { services, getServiceBySlug } from "@/data/services";
 
 export function generateStaticParams() {
@@ -18,91 +22,87 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return { title: service.seoTitle, description: service.seoDescription };
 }
 
+const label = "mono text-[12px] uppercase tracking-[0.08em] text-[var(--link)]";
+
 export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
   if (!service) notFound();
 
+  const next = services[(services.indexOf(service) + 1) % services.length];
+  const cta = service.cta.replace(" →", "");
+
   return (
     <PageShell>
       <PageHero
-        eyebrow={service.name.toUpperCase()}
+        eyebrow={service.name}
         headline={service.heroHeadline}
-        subheadline={service.heroSubheadline}
+        subheadline={service.tagline}
+        visual={<OrbitMark Icon={serviceIcons[service.slug]} />}
       >
-        <Link href="/contact" className="btn-primary mt-2">
-          {service.cta.replace(" →", "")}
+        <Link href="/contact" className="btn-primary">
+          {cta}
         </Link>
       </PageHero>
 
+      {/* The problem, struck through line by line */}
       <section className="section tone-light">
         <div className="container">
-          <Reveal className="section-head">
-            <h2 className="h2">What you&apos;re probably dealing with</h2>
-          </Reveal>
-          <StaggerGroup className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
-            {service.painPoints.map((point) => (
-              <StaggerItem key={point}>
-                <div className="card flex h-full items-start gap-3">
-                  <X size={18} className="mt-0.5 shrink-0" style={{ color: "var(--fg3)" }} />
-                  <span className="small" style={{ color: "var(--fg)" }}>{point}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
+          <div className="mx-auto max-w-4xl">
+            <Reveal>
+              <h2 className="h2 mb-10 sm:mb-14">Sound familiar?</h2>
+            </Reveal>
+            <StrikeList items={service.painPoints} />
+          </div>
         </div>
       </section>
 
+      {/* The approach, set as one large sentence that lights up as you read */}
+      <section className="section tone-white">
+        <div className="container">
+          <Reveal>
+            <span className={label}>How we do it</span>
+          </Reveal>
+          <LitText text={service.approach} className="mt-6 max-w-[38ch] text-[clamp(23px,3.1vw,40px)]" />
+        </div>
+      </section>
+
+      {/* What's included, as a cloud of pills */}
       <section className="section tone-dark">
         <div className="container">
-          <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
-            <span className="eyebrow">HOW WE DO IT DIFFERENTLY</span>
-            <p className="h3">{service.approach}</p>
+          <Reveal>
+            <h2 className="h2 mb-10 sm:mb-14">What&apos;s included</h2>
           </Reveal>
+          <PillCloud items={service.deliverables} />
+        </div>
+      </section>
+
+      {/* The numbers */}
+      <section className="section tone-light">
+        <div className="container">
+          <StatRow stats={service.stats} />
         </div>
       </section>
 
       <section className="section tone-white">
         <div className="container">
-          <Reveal className="section-head">
-            <h2 className="h2">What&apos;s included</h2>
-          </Reveal>
-          <StaggerGroup className="mx-auto grid max-w-3xl gap-x-10 gap-y-4 sm:grid-cols-2">
-            {service.deliverables.map((item) => (
-              <StaggerItem key={item}>
-                <div className="flex items-start gap-3">
-                  <Check size={18} className="mt-0.5 shrink-0" style={{ color: "var(--link)" }} />
-                  <span className="small" style={{ color: "var(--fg)" }}>{item}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
-          <Reveal className="mt-14 text-center">
-            <span className="stat-value text-[clamp(22px,3vw,28px)]" style={{ color: "var(--link)" }}>
-              {service.benchmarkStat}
-            </span>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section tone-light">
-        <div className="narrow">
-          <Reveal className="section-head">
-            <h2 className="h2">Frequently asked</h2>
-          </Reveal>
-          <div className="flex flex-col gap-3">
-            {service.faqs.map((faq) => (
-              <Reveal key={faq.question}>
-                <div className="card">
-                  <h3 className="h4 mb-2">{faq.question}</h3>
-                  <p className="small">{faq.answer}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mx-auto max-w-3xl">
+            <Reveal>
+              <h2 className="h2 mb-10 sm:mb-14">Questions, answered.</h2>
+            </Reveal>
+            <FaqList items={service.faqs} />
           </div>
         </div>
       </section>
 
-      <CtaSection headline={service.heroHeadline} ctaLabel={service.cta.replace(" →", "")} />
+      <section className="tone-light px-5 py-[clamp(56px,8vw,104px)] sm:px-8">
+        <div className="container">
+          <Reveal>
+            <NextUp href={`/services/${next.slug}`} label="Next service" title={next.name} />
+          </Reveal>
+        </div>
+      </section>
+
+      <CtaSection headline="Want to see what we'd fix first?" ctaLabel={cta} />
     </PageShell>
   );
 }

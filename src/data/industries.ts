@@ -1,5 +1,9 @@
 export interface Industry {
   slug: string;
+  /** One short line for heroes and tiles (heroSubheadline is kept for reference/SEO copy). */
+  tagline: string;
+  /** The headline number, split from `benchmark` for display. */
+  stat: { value: string; label: string };
   name: string;
   eyebrow: string;
   heroHeadline: string;
@@ -14,6 +18,8 @@ export interface Industry {
 export const industries: Industry[] = [
   {
     slug: "fashion-apparel",
+    tagline: "Win on returns, not just traffic.",
+    stat: { value: "3–5X", label: "target ROAS for fashion campaigns" },
     name: "Fashion & Apparel",
     eyebrow: "25% OF INDIA'S D2C MARKET",
     heroHeadline: "Fashion's Real Problem Isn't Traffic. It's Returns.",
@@ -34,6 +40,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "beauty-personal-care",
+    tagline: "Creative and retention drive the margin.",
+    stat: { value: "4–6X", label: "target ROAS for beauty campaigns" },
     name: "Beauty & Personal Care",
     eyebrow: "24.9% CAGR, 60–80% GROSS MARGINS",
     heroHeadline: "60–80% Margins Mean Nothing If Your UGC Doesn't Convert.",
@@ -54,6 +62,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "food-fmcg",
+    tagline: "Quick commerce first, repeat purchase always.",
+    stat: { value: "2.5–4X", label: "target ROAS for food and FMCG campaigns" },
     name: "Food & FMCG",
     eyebrow: "$6–7B QUICK COMMERCE GMV",
     heroHeadline: "Quick Commerce Isn't a Channel Here. It's the Business.",
@@ -74,6 +84,8 @@ export const industries: Industry[] = [
   },
   {
     slug: "offline-to-online",
+    tagline: "From counter to every channel in 30 days.",
+    stat: { value: "30 days", label: "from zero online presence to a live, selling store" },
     name: "Offline → Online",
     eyebrow: "13M+ KIRANAS, ZERO DIGITAL SHELF",
     heroHeadline: "You Already Have Customers. You Just Don't Have a Digital Shelf.",

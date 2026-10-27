@@ -3,6 +3,11 @@ export interface ServiceFaq {
   answer: string;
 }
 
+export interface PageStat {
+  value: string;
+  label: string;
+}
+
 export interface Service {
   slug: string;
   name: string;
@@ -13,6 +18,10 @@ export interface Service {
   approach: string;
   deliverables: string[];
   benchmarkStat: string;
+  /** One short line for heroes and list rows (the long heroSubheadline is kept for reference/SEO copy). */
+  tagline: string;
+  /** The numbers behind benchmarkStat, split for display. */
+  stats: PageStat[];
   relatedCaseStudySlug: string;
   faqs: ServiceFaq[];
   cta: string;
@@ -47,6 +56,8 @@ export const services: Service[] = [
       "2–4 week timeline to launch",
     ],
     benchmarkStat: "2.5–4%+ conversion rate, 90+ PageSpeed, <2s load time",
+    tagline: "Mobile-first stores that load fast and convert.",
+    stats: [{ value: "2.5–4%+", label: "conversion rate" }, { value: "90+", label: "PageSpeed" }, { value: "<2s", label: "load time" }],
     relatedCaseStudySlug: "jaipur-ethnicwear-brand",
     faqs: [
       {
@@ -92,6 +103,8 @@ export const services: Service[] = [
       "Weekly performance reporting on ROAS/CAC/MER",
     ],
     benchmarkStat: "3.5X average blended ROAS across clients",
+    tagline: "15–20 creatives tested every month. Every rupee accountable.",
+    stats: [{ value: "3.5X", label: "average blended ROAS across clients" }, { value: "15–20", label: "creatives tested every month" }],
     relatedCaseStudySlug: "mumbai-skincare-brand",
     faqs: [
       {
@@ -139,6 +152,8 @@ export const services: Service[] = [
       "Monthly organic traffic + ranking reports",
     ],
     benchmarkStat: "Organic traffic at zero marginal cost per acquisition",
+    tagline: "Product page SEO, technical fixes and content that sells.",
+    stats: [{ value: "₹0", label: "marginal cost per organic acquisition" }],
     relatedCaseStudySlug: "pune-healthy-snacks-brand",
     faqs: [
       {
@@ -182,6 +197,8 @@ export const services: Service[] = [
       "Myntra EORS & Nykaa Pink Friday positioning",
     ],
     benchmarkStat: "<18% average ACOS on Sponsored Products",
+    tagline: "Listing SEO, A+ Content, PPC, inventory sync and seller health.",
+    stats: [{ value: "<18%", label: "average ACOS on Sponsored Products" }],
     relatedCaseStudySlug: "delhi-haircare-brand",
     faqs: [
       {
@@ -223,6 +240,8 @@ export const services: Service[] = [
       "Category fit analysis (Food ★★★★★ · Beauty ★★★★☆ · Health ★★★★☆ · Fashion ★★☆☆☆)",
     ],
     benchmarkStat: "Fast-tracked onboarding in as little as 3 weeks",
+    tagline: "Onboarding, replenishment and in-app ads, handled.",
+    stats: [{ value: "3 weeks", label: "to onboard, at the fastest" }],
     relatedCaseStudySlug: "mumbai-protein-snack-brand",
     faqs: [
       {
@@ -265,6 +284,8 @@ export const services: Service[] = [
       "Monthly RTO & return-rate reporting",
     ],
     benchmarkStat: "15–25% RTO reduction via COD verification",
+    tagline: "Shipping, COD and returns, sorted.",
+    stats: [{ value: "15–25%", label: "RTO reduction via COD verification" }],
     relatedCaseStudySlug: "jaipur-ethnicwear-brand",
     faqs: [
       {
@@ -306,6 +327,8 @@ export const services: Service[] = [
       "Unified strategy across every channel",
     ],
     benchmarkStat: "7 channels, 1 team, 1 report",
+    tagline: "Everything, run for you.",
+    stats: [{ value: "7", label: "channels managed" }, { value: "1", label: "monthly report" }],
     relatedCaseStudySlug: "delhi-haircare-brand",
     faqs: [
       {

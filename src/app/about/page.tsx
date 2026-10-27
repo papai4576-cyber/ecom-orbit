@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { CtaSection } from "@/components/cta-section";
-import { CountUp } from "@/components/motion/count-up";
+import { StatRow } from "@/components/page/static-blocks";
+import { LitText } from "@/components/motion/lit-text";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
@@ -12,76 +13,59 @@ export const metadata: Metadata = {
 };
 
 const principles = [
-  {
-    title: "Revenue over vanity metrics.",
-    body: "We don't report impressions to clients who need ROAS. If a metric doesn't map to money, it doesn't go in your monthly report.",
-  },
-  {
-    title: "Transparent pricing, always.",
-    body: "You'll never get a 'let's hop on a call to discuss pricing' response from us. Our tiers are on this website.",
-  },
-  {
-    title: "Category depth over generic playbooks.",
-    body: "Fashion, beauty, and food/FMCG each have different unit economics, return rates, and channel mixes. We specialize instead of running the same template on every brand.",
-  },
-  {
-    title: "Honest 'no' over a dishonest 'yes.'",
-    body: "If quick commerce or a specific marketplace isn't right for your brand yet, we'll tell you — even though it costs us the fee.",
-  },
+  { title: "Revenue over vanity metrics.", body: "If a metric doesn't map to money, it's not in your report." },
+  { title: "Transparent pricing, always.", body: "Our tiers are on this website. No \"hop on a call\" games." },
+  { title: "Category depth over generic playbooks.", body: "Fashion, beauty and food run on different economics, so we specialize." },
+  { title: "An honest no over a dishonest yes.", body: "If a channel isn't right for you yet, we'll say so, even if it costs us the fee." },
 ];
 
 const stats = [
-  { value: 2, label: "Founders on every account" },
-  { value: 7, label: "Channels managed" },
-  { value: 3.5, suffix: "X", decimals: 1, label: "Average ROAS" },
-  { value: 90, suffix: "+", label: "Average PageSpeed score" },
+  { value: "2", label: "founders on every account" },
+  { value: "7", label: "channels managed" },
+  { value: "3.5X", label: "average ROAS" },
+  { value: "90+", label: "average PageSpeed" },
 ];
 
 export default function AboutPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="WHY ECOM ORBIT EXISTS"
+        eyebrow="About"
         headline={
           <>
             We got tired of watching good brands get <span className="accent-text">bad advice.</span>
           </>
         }
-        subheadline="Ecom Orbit started because Indian ecommerce founders kept hiring five vendors to do one job — and every one of those vendors had an incentive to defend their own channel, not your revenue."
+        subheadline="Five vendors, one job, and nobody owning your revenue."
       />
 
+      {/* The story, as one sentence you read your way through */}
       <section className="section tone-light">
-        <div className="narrow">
-          <Reveal className="flex flex-col gap-6">
-            <p className="lead" style={{ color: "var(--fg)" }}>
-              Every founder we&apos;d talk to had the same setup: a Shopify freelancer, a Meta ads agency, an SEO
-              consultant, an Amazon specialist, and a logistics guy nobody could reach on weekends. Nobody owned the
-              whole picture.
-            </p>
-            <p className="body">
-              When ROAS dropped, the ad agency blamed the website. When the website was slow, the freelancer blamed
-              the app stack. When Blinkit onboarding stalled for four months, nobody was even accountable for it.
-            </p>
-            <p className="body">
-              We built Ecom Orbit to be the team that owns all of it — store, marketing, marketplaces, quick commerce,
-              logistics — under one roof, with one person actually responsible for the number that matters: your
-              revenue.
+        <div className="container">
+          <LitText
+            text="Nobody owned the whole picture. When ROAS dropped, the ad agency blamed the website. When the website was slow, the freelancer blamed the app stack. When Blinkit onboarding stalled for four months, nobody was accountable."
+            className="max-w-[34ch] text-[clamp(26px,4vw,52px)]"
+          />
+          <Reveal>
+            <p className="lead mt-10 max-w-[44ch]">
+              So we built the agency that owns all of it, and the one number that matters: your revenue.
             </p>
           </Reveal>
         </div>
       </section>
 
+      {/* Principles: title on the left, one line on the right */}
       <section className="section tone-white">
         <div className="container">
-          <Reveal className="section-head">
-            <h2 className="h2">What we believe</h2>
+          <Reveal>
+            <h2 className="h2 mb-10 sm:mb-14">What we believe</h2>
           </Reveal>
-          <StaggerGroup className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
+          <StaggerGroup className="border-t border-white/10" staggerDelay={0.08}>
             {principles.map((p) => (
               <StaggerItem key={p.title}>
-                <div className="card h-full">
-                  <h3 className="h4 mb-2">{p.title}</h3>
-                  <p className="small">{p.body}</p>
+                <div className="grid gap-3 border-b border-white/10 py-7 sm:grid-cols-[1.2fr_1fr] sm:items-center sm:gap-12 sm:py-9">
+                  <h3 className="text-[clamp(22px,3vw,36px)] font-light leading-[1.15] tracking-[-0.025em] text-[var(--fg)]">{p.title}</h3>
+                  <p className="small sm:max-w-[34ch]">{p.body}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -90,34 +74,17 @@ export default function AboutPage() {
       </section>
 
       <section className="section tone-dark">
-        <div className="narrow flex flex-col gap-14 text-center">
+        <div className="container flex flex-col gap-14 sm:gap-20">
           <Reveal>
-            <p className="h3">
-              Ecom Orbit is run by operators who&apos;ve managed Shopify builds, Meta and Google ad accounts, Amazon
-              and Flipkart seller accounts, and Blinkit/Zepto dark-store relationships directly — not account managers
-              relaying instructions to a subcontractor.
+            <p className="max-w-[30ch] text-[clamp(24px,3.4vw,44px)] font-light leading-[1.15] tracking-[-0.03em] text-[var(--fg)]">
+              Run by operators who&apos;ve managed these accounts directly, not account managers relaying instructions.
             </p>
           </Reveal>
-          <StaggerGroup className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
-            {stats.map((stat) => (
-              <StaggerItem key={stat.label}>
-                <div className="flex flex-col items-center gap-3">
-                  <CountUp
-                    value={stat.value}
-                    suffix={stat.suffix}
-                    decimals={stat.decimals ?? 0}
-                    className="stat-value"
-                    style={{ fontSize: "clamp(40px, 6vw, 56px)" }}
-                  />
-                  <span className="small max-w-[14ch]">{stat.label}</span>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
+          <StatRow stats={stats} />
         </div>
       </section>
 
-      <CtaSection headline="See what we'd find in your store" ctaLabel="Get Your Free Ecommerce Audit" />
+      <CtaSection headline="See what we'd find in your store" />
     </PageShell>
   );
 }

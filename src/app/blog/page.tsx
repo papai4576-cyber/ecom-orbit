@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
-import { StaggerGroup, StaggerItem } from "@/components/motion/reveal";
+import { LinkRows } from "@/components/page/static-blocks";
 import { blogPosts } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
@@ -13,21 +12,10 @@ export const metadata: Metadata = {
 export default function BlogIndexPage() {
   return (
     <PageShell>
-      <PageHero eyebrow="THE ECOM ORBIT BLOG" headline="Practical ecommerce, not growth-hack theatre." />
-      <section className="section tone-light !pt-[clamp(32px,5vw,64px)]">
+      <PageHero eyebrow="Blog" headline="Practical ecommerce, not growth-hack theatre." />
+      <section className="tone-light px-5 pb-[clamp(72px,10vw,128px)] pt-2 sm:px-8">
         <div className="container">
-          <StaggerGroup className="grid gap-4 md:grid-cols-2">
-            {blogPosts.map((post) => (
-              <StaggerItem key={post.slug}>
-                <Link href={`/blog/${post.slug}`} className="card flex h-full flex-col gap-3">
-                  <span className="caption" style={{ color: "var(--link)" }}>{post.category}</span>
-                  <h2 className="h3">{post.title}</h2>
-                  <p className="small">{post.excerpt}</p>
-                  <span className="link-more mt-auto !text-[15px]">Read post</span>
-                </Link>
-              </StaggerItem>
-            ))}
-          </StaggerGroup>
+          <LinkRows rows={blogPosts.map((p) => ({ href: `/blog/${p.slug}`, title: p.title, meta: p.category }))} />
         </div>
       </section>
     </PageShell>

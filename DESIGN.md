@@ -53,6 +53,9 @@ Every homepage section is a different kind of object, with one line of copy and 
 | Pricing | three open columns split by hairlines; the featured plan on glass |
 | Final CTA | one sentence, one button, rings pulsing outward |
 
+## 5c. Inner-page kit (`src/components/page/`, `page-hero.tsx`, `cta-section.tsx`)
+Shared pieces, each a different object so no two sections in a page look alike: `PageHero` (left-aligned, one line, optional picture), `OrbitMark` (rings + glowing icon + a spark, CSS only), `LitText` (words light up on scroll), `StrikeList` (problems struck through in orange as they enter), `PillCloud` (glass pills), `TickRows` (orange ticks on hairlines), `StatRow` (big mono numbers on hairlines), `FaqList` (details accordion, answers stay in the HTML), `LinkRows` (interactive index list), `NextUp` (big link to the next page), `CtaSection` (one sentence, one button, pulsing rings). The nav floats, so each page's first section sets its own top padding (`pt-[112px] sm:pt-[144px]`); `PageShell` adds none.
+
 ## 6. Do / Don't
 - Do keep every claim checkable; stats stay in JetBrains Mono; use ₹, lakhs, crores.
 - Do keep the starfield as the only page-level backdrop; add depth with haze, glass and parallax, not imagery.

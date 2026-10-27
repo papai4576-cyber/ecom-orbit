@@ -40,6 +40,22 @@ That Actually Sells.
 
 ---
 
+## Inner pages (minimal pass, 2026-10-28)
+
+Inner-page copy was cut the same way as the homepage: one headline, one short line, then each section shows a short list or a single statement. Source of truth is `src/data/services.ts`, `src/data/industries.ts`, `src/data/blog-posts.ts` and the page files.
+
+- **New fields:** each service has `tagline` (the one hero line; the long `heroSubheadline` is kept in data but no longer shown) and `stats` (the numbers behind `benchmarkStat`); each industry has `tagline` and `stat`.
+- **Service taglines:** Store setup "Mobile-first stores that load fast and convert."; Performance "15–20 creatives tested every month. Every rupee accountable."; SEO "Product page SEO, technical fixes and content that sells."; Marketplaces "Listing SEO, A+ Content, PPC, inventory sync and seller health."; Quick commerce "Onboarding, replenishment and in-app ads, handled."; Logistics "Shipping, COD and returns, sorted."; End-to-end "Everything, run for you." A tagline must add something the headline does not say.
+- **Service page headings:** "Sound familiar?", "How we do it", "What's included", "Questions, answered.", closing "Want to see what we'd fix first?".
+- **Industry taglines:** Fashion "Win on returns, not just traffic."; Beauty "Creative and retention drive the margin."; Food & FMCG "Quick commerce first, repeat purchase always."; Offline → Online "From counter to every channel in 30 days." Industry hero labels now show the category name (the old market-size eyebrows, e.g. "$6–7B QUICK COMMERCE GMV" and "13M+ KIRANAS", were dropped as unsourced).
+- **About:** hero line "Five vendors, one job, and nobody owning your revenue."; the story is one `LitText` paragraph (ROAS dropped / website was slow / Blinkit onboarding stalled) plus "So we built the agency that owns all of it, and the one number that matters: your revenue."; four principles, each one line; "Run by operators who've managed these accounts directly, not account managers relaying instructions."
+- **Contact:** "Tell us what's not working. We'll tell you why." + "We reply within 24 hours." + email and hours; the "Prefer to just talk?" card was folded into those two lines.
+- **Free audit:** "We'll tear down your store before your competitor does." + "A written audit in 48 hours, with numbered fixes. Keep it whether or not we work together." + five short checklist lines (Store speed and conversion teardown / Ad account review / Marketplace listing audit / Quick commerce viability check / Logistics and RTO audit) + "Every audit is done personally by one of our two founders."
+- **Blog index:** titles and categories only (excerpts stay in data). Blog posts: first paragraph set as the lead.
+- **Legal pages:** text unchanged.
+
+---
+
 ## Message rule: one idea per place (2026-10-28)
 
 The "one team / one system" idea is told **twice on the site and nowhere else**: the homepage Statement ("5 vendors, 0 system" → "1 team, 1 system", the problem and its answer) and the End-to-End service page (it is that offer). Every other place gets its own idea: Hero = what we do and who for; Orbit Scrub = coverage ("Every place your customers buy"); Industry rail = category fit; Process = a clear path; Bento = two under-used channels; Pricing = openness; Final CTA = the free audit. Services index, About meta and the nav no longer say "one team". When writing new copy, ask what this section says that no other section says.
