@@ -113,7 +113,7 @@ function Scrub() {
       aria-label="The seven channels Ecom Orbit runs"
     >
       <div
-        className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden px-5 pb-6 pt-[96px] sm:px-8 lg:flex-row lg:items-center lg:gap-16 lg:pt-[60px]"
+        className="sticky top-0 flex h-[100svh] flex-col justify-center overflow-hidden px-5 pb-24 pt-[96px] sm:px-8 lg:flex-row lg:items-center lg:gap-16 lg:pb-6 lg:pt-[60px]"
         style={{ maxWidth: "var(--content-max)", margin: "0 auto" }}
       >
         <div className="order-2 min-h-[190px] lg:order-1 lg:flex-1">
