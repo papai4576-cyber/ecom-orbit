@@ -23,9 +23,9 @@ function place(i: number, t: number) {
   const a = t * SPEED + (i * Math.PI * 2) / CHANNELS.length + 0.4;
   const depth = (Math.sin(a) + 1) / 2; // 0 back .. 1 front
   return {
-    left: `${50 + RX * Math.cos(a)}%`,
-    top: `${50 + RY * Math.sin(a)}%`,
-    transform: `translate(-50%, -50%) scale(${0.6 + 0.62 * depth})`,
+    left: `${(50 + RX * Math.cos(a)).toFixed(3)}%`,
+    top: `${(50 + RY * Math.sin(a)).toFixed(3)}%`,
+    transform: `translate(-50%, -50%) scale(${(0.6 + 0.62 * depth).toFixed(4)})`,
     opacity: 0.45 + 0.55 * depth,
     zIndex: depth > 0.5 ? 20 : 5,
     filter: `blur(${((1 - depth) * 1.6).toFixed(2)}px)`,
@@ -40,10 +40,10 @@ function spark(k: number, t: number) {
   const depth = (Math.sin(a) + 1) / 2;
   const fade = 1 - k / SPARKS;
   return {
-    left: `${50 + RX * Math.cos(a)}%`,
-    top: `${50 + RY * Math.sin(a)}%`,
-    transform: `translate(-50%, -50%) scale(${(0.55 + 0.7 * depth) * (0.45 + 0.55 * fade)})`,
-    opacity: fade * (0.35 + 0.65 * depth),
+    left: `${(50 + RX * Math.cos(a)).toFixed(3)}%`,
+    top: `${(50 + RY * Math.sin(a)).toFixed(3)}%`,
+    transform: `translate(-50%, -50%) scale(${((0.55 + 0.7 * depth) * (0.45 + 0.55 * fade)).toFixed(4)})`,
+    opacity: Number((fade * (0.35 + 0.65 * depth)).toFixed(4)),
   };
 }
 

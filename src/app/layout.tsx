@@ -4,6 +4,7 @@ import "./globals.css";
 import { Starfield } from "@/components/motion/starfield";
 import { PointerGlow } from "@/components/motion/pointer-glow";
 import { StickyCta } from "@/components/sticky-cta";
+import { ScrollSatellite } from "@/components/motion/scroll-satellite";
 
 // Inter stands in for SF Pro wherever -apple-system isn't available (Android, Windows).
 const inter = Inter({
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body>
         <Starfield />
         <PointerGlow />
+        <ScrollSatellite />
         {children}
         <StickyCta />
       </body>

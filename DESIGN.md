@@ -33,7 +33,9 @@ Accent (the only brand chroma): `--accent #ff6b2b` for fills (always with `#1d1d
 - **Form fields** `.field`: translucent, light text, orange focus ring.
 
 ## 5. Scenes and motion (the visual layer)
-- **Starfield** (`motion/starfield.tsx`): fixed canvas, ~220 stars on 3 depth layers, twinkle and scroll parallax, two colour hazes. Static under reduced motion; paused when the tab is hidden.
+- **Cosmos** (`motion/starfield.tsx`, component still named `Starfield`): one fixed canvas. A procedurally painted nebula (5-octave value noise: deep blue to violet, a diagonal dust lane, a faint warm-orange core low on the right) drifts slowly and slides with scroll; 120–260 plain small stars on 3 depth layers (about a third cluster along the dust lane) that twinkle gently; a rare, faint shooting star (every 18–32 s); fine film grain over the sky. No glowing or spiked stars and no cursor light (removed 2026-10-29: distracting). Phones get fewer stars and 30fps. Static under reduced motion; paused when the tab is hidden.
+- **Hero lighting** (`hero.tsx` + `.beam`, `.planet`, `.planet-bloom` in `globals.css`): three very slow (26–34 s), faint light beams behind the headline, and a planet limb rising at the hero base with a thin sunlit rim and a soft sunrise bloom (14 s). A bottom gradient (transparent to the `.tone-dark` black 42%) eases the hero into the next section. Keep these quiet: they frame the orbit, they don't compete with it. The orbit scene is unchanged.
+- **Scroll satellite** (`motion/scroll-satellite.tsx`): a tiny satellite on a hairline orbit down the right edge as the page progress indicator; xl screens only, hidden under reduced motion.
 - **Hero** (`hero.tsx`), minimal pass: headline (orange emphasis phrase), one line, one button + a quiet link, and the **Orbit Scene** as the whole picture (`motion/orbit-scene.tsx`: 7 channel orbs on a tilted ellipse around a glowing "You" hub, with depth: size, brightness, back-orb blur, occlusion; plus a comet of sparks riding the ring). The scene tilts toward the mouse and rises on scroll; copy drifts up and softens. Four stats sit on one quiet mono line under it. No badge, no paragraph, no cards. Modelled on Linear / Raycast / Resend / Vercel heroes: short headline, at most two lines of support, one dominant object.
 - **Orbit Scrub** (`orbit-scrub.tsx`): the one pinned-scroll section. Scroll turns the orbit so each channel reaches the top spoke in turn while the copy swaps. Do not add other pinned sections.
 - **Process timeline**: step rules draw in orange on entry. Other sections use `Reveal` / `StaggerGroup`, count-up and bar-grow.
@@ -58,7 +60,7 @@ Shared pieces, each a different object so no two sections in a page look alike: 
 
 ## 6. Do / Don't
 - Do keep every claim checkable; stats stay in JetBrains Mono; use ₹, lakhs, crores.
-- Do keep the starfield as the only page-level backdrop; add depth with haze, glass and parallax, not imagery.
+- Do keep the cosmos canvas as the only page-level backdrop; add depth with haze, glass, light and parallax, not imagery. Keep nebula peak alpha low (~0.6) so text contrast holds.
 - Don't add a section that is a heading + paragraph + grid of text cards; pick a new object from 5b or reuse one. Keep each section to a line or two of copy.
 - Don't add a second accent colour, emoji, fake photos of people, fake testimonials or logos.
 - Don't put blur (`backdrop-filter`) on lists of cards; use `.card` (no blur), reserve `.glass`.

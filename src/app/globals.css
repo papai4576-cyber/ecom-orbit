@@ -524,9 +524,103 @@ a.card:hover {
 }
 
 /* ── Reduced motion ── */
+/* ── Hero lighting: slanted light beams from above, and a planet limb rising at the base ── */
+.beam {
+  position: absolute;
+  top: -12%;
+  height: 135%;
+  width: clamp(90px, 14vw, 230px);
+  filter: blur(26px);
+  mix-blend-mode: screen;
+  transform-origin: 50% 0;
+  animation: beam-sway 26s ease-in-out infinite alternate;
+}
+.beam-a {
+  left: 14%;
+  --tilt: 17deg;
+  background: linear-gradient(to bottom, rgba(255, 138, 85, 0.14), rgba(255, 107, 43, 0) 75%);
+}
+.beam-b {
+  left: 46%;
+  --tilt: -13deg;
+  animation-duration: 34s;
+  animation-delay: -6s;
+  background: linear-gradient(to bottom, rgba(120, 160, 255, 0.15), rgba(96, 140, 220, 0) 75%);
+}
+.beam-c {
+  left: 76%;
+  --tilt: 21deg;
+  animation-duration: 30s;
+  animation-delay: -3s;
+  background: linear-gradient(to bottom, rgba(255, 138, 85, 0.09), rgba(255, 107, 43, 0) 70%);
+}
+@keyframes beam-sway {
+  from {
+    transform: rotate(calc(var(--tilt) - 2deg)) translateX(-1%);
+    opacity: 0.7;
+  }
+  to {
+    transform: rotate(calc(var(--tilt) + 2deg)) translateX(2%);
+    opacity: 1;
+  }
+}
+
+/* The horizon sits 184px down inside the wrapper, leaving headroom above it so the outer glow is never clipped to a hard line */
+.planet-wrap {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 34%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 34%, #000 80%, transparent 100%);
+}
+.planet {
+  position: absolute;
+  left: 50%;
+  top: 184px;
+  width: 230%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 0%, rgba(24, 36, 74, 0.96), #02040a 58%);
+  box-shadow: 0 -12px 60px rgba(255, 107, 43, 0.12), inset 0 22px 60px rgba(255, 120, 60, 0.1);
+}
+/* The sunlit rim: a thin bright line that is brightest at the apex and fades toward the sides */
+.planet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 0 rgba(255, 205, 170, 0.55), inset 0 6px 20px rgba(255, 138, 85, 0.22);
+  -webkit-mask-image: linear-gradient(to right, transparent 30%, #000 50%, transparent 70%);
+  mask-image: linear-gradient(to right, transparent 30%, #000 50%, transparent 70%);
+}
+/* Sunrise bloom sitting on the horizon */
+.planet-bloom {
+  position: absolute;
+  left: 50%;
+  top: 178px;
+  width: min(70%, 760px);
+  height: clamp(70px, 9vw, 140px);
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 170, 120, 0.26), rgba(255, 107, 43, 0.06) 45%, transparent 72%);
+  filter: blur(10px);
+  animation: bloom 14s ease-in-out infinite alternate;
+}
+@keyframes bloom {
+  from {
+    opacity: 0.8;
+    transform: translateX(-50%) scaleX(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.02);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .beam,
+  .planet-bloom {
+    animation: none !important;
   }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

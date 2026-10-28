@@ -64,6 +64,30 @@ export function Hero() {
         }}
       />
 
+      {/* Light beams slanting down behind the headline */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[75%] overflow-hidden"
+        style={{ WebkitMaskImage: "linear-gradient(to bottom, #000 35%, transparent)", maskImage: "linear-gradient(to bottom, #000 35%, transparent)" }}
+      >
+        <span className="beam beam-a" />
+        <span className="beam beam-b" />
+        <span className="beam beam-c" />
+      </div>
+
+      {/* Eases the hero's base into the next (darker) section so there is no visible step */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[220px]"
+        style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.42))" }}
+      />
+
+      {/* A planet limb rising at the base of the hero, lit from the side the orbit sits on */}
+      <div aria-hidden="true" className="planet-wrap pointer-events-none absolute inset-x-0 bottom-0 h-[calc(clamp(150px,20vw,300px)+140px)] overflow-hidden">
+        <div className="planet" />
+        <div className="planet-bloom" />
+      </div>
+
       <motion.div style={{ y: copyY, opacity: copyOpacity }} className="container relative z-10 flex flex-col items-center text-center">
         <motion.h1 {...rise(0)} className="display max-w-[16ch] !text-[clamp(40px,5.6vw,76px)] sm:max-w-[24ch]">
           Your Business Deserves a Store That <span className="accent-text">Actually Sells.</span>
@@ -102,7 +126,7 @@ export function Hero() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 mx-auto -mt-2 grid w-fit grid-cols-2 items-baseline gap-x-10 gap-y-4 pb-14 sm:-mt-6 sm:flex sm:w-full sm:max-w-[1120px] sm:flex-wrap sm:justify-center sm:gap-x-14 sm:gap-y-3 sm:pb-20"
+        className="relative z-10 mx-auto -mt-2 grid w-fit grid-cols-2 items-baseline gap-x-10 gap-y-4 pb-32 sm:-mt-6 sm:flex sm:w-full sm:max-w-[1120px] sm:flex-wrap sm:justify-center sm:gap-x-14 sm:gap-y-3 sm:pb-28"
       >
         {stats.map((s) => (
           <li key={s.label} className="flex items-baseline gap-2">
