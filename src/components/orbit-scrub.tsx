@@ -128,6 +128,7 @@ function Scrub() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center text-center lg:items-start lg:text-left"
               >
                 <Panel channel={channel} />
               </motion.div>

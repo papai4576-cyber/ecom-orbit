@@ -65,6 +65,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Decorative glows may extend past the screen edge. Clip them so phones never widen the layout
+     viewport (which loads the page zoomed-out). `clip` keeps position: sticky working. */
+  overflow-x: clip;
 }
 
 body {
@@ -77,6 +80,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 :focus-visible {
@@ -217,7 +221,7 @@ body {
   left: 50%;
   top: 50%;
   z-index: -1;
-  width: min(900px, 130%);
+  width: min(900px, 100%);
   aspect-ratio: 2 / 1;
   transform: translate(-50%, -55%);
   background: radial-gradient(closest-side, rgba(70, 110, 200, 0.2), transparent);

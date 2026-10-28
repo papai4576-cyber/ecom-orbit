@@ -88,7 +88,7 @@ export function Hero() {
         initial={reduce ? false : { opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.1, delay: 0.3, ease }}
-        className="relative z-0 mt-6 sm:-mt-2"
+        className="relative z-0 mt-6 px-3 sm:-mt-2 sm:px-0"
         style={{ perspective: 1400 }}
       >
         <motion.div style={{ y: sceneY, scale: sceneScale, rotateX, rotateY }}>
@@ -102,7 +102,7 @@ export function Hero() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="container relative z-10 -mt-2 flex flex-wrap items-baseline justify-center gap-x-9 gap-y-3 pb-14 sm:-mt-6 sm:gap-x-14 sm:pb-20"
+        className="relative z-10 mx-auto -mt-2 grid w-fit grid-cols-2 items-baseline gap-x-10 gap-y-4 pb-14 sm:-mt-6 sm:flex sm:w-full sm:max-w-[1120px] sm:flex-wrap sm:justify-center sm:gap-x-14 sm:gap-y-3 sm:pb-20"
       >
         {stats.map((s) => (
           <li key={s.label} className="flex items-baseline gap-2">

@@ -6,7 +6,7 @@ import { PageHero } from "@/components/page-hero";
 import { CtaSection } from "@/components/cta-section";
 import { OrbitMark } from "@/components/page/orbit-mark";
 import { serviceIcons } from "@/components/page/icons";
-import { StrikeList, PillCloud } from "@/components/page/blocks";
+import { PainList, PillCloud } from "@/components/page/blocks";
 import { FaqList, StatRow, NextUp } from "@/components/page/static-blocks";
 import { LitText } from "@/components/motion/lit-text";
 import { Reveal } from "@/components/motion/reveal";
@@ -44,14 +44,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </Link>
       </PageHero>
 
-      {/* The problem, struck through line by line */}
+      {/* The problem, as numbered lines */}
       <section className="section tone-light">
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <Reveal>
               <h2 className="h2 mb-10 sm:mb-14">Sound familiar?</h2>
             </Reveal>
-            <StrikeList items={service.painPoints} />
+            <PainList items={service.painPoints} />
           </div>
         </div>
       </section>
