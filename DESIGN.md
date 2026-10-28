@@ -47,7 +47,7 @@ Every homepage section is a different kind of object, with one line of copy and 
 | Section | Object |
 |---|---|
 | Orbit Scrub | pinned orbit that walks the 7 channels |
-| Statement (`statement.tsx`) | one huge left-aligned sentence, words light up on scroll, before/after diagram |
+| Statement (`statement.tsx`) | one huge left-aligned sentence (words light up on scroll), then `vendor-reports.tsx`: five vendor rows that all report fine (neutral ticks, no invented numbers), a dashed "Your contribution margin: Nobody reports this" row, and an orange-outlined "Ecom Orbit reports it. Every month, every channel." row with a link to End-to-End |
 | Platform marquee (`platform-marquee.tsx`) | oversized outlined platform names drifting in two rows, no copy |
 | Industry rail (`industry-rail.tsx`) | horizontal rail of tall cards: icon, one number, one name |
 | Process path (`process-path.tsx`) | a line that fills as you scroll through 5 stops |
