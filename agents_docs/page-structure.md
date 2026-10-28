@@ -39,7 +39,7 @@ Every inner page opens with the shared `PageHero` (left-aligned light headline, 
 | Page | Sections |
 |---|---|
 | `/services` | hero → interactive `LinkRows` list (name + tagline) → CTA |
-| `/services/[slug]` | hero + OrbitMark → "Sound familiar?" `PainList` (numbered lines) → approach as `LitText` → "What's included" `PillCloud` → `StatRow` → `FaqList` accordion → `NextUp` next service → CTA |
+| `/services/[slug]` | hero + OrbitMark → "Sound familiar?" `PainList` (numbered lines) → approach as `LitText` → (End-to-End only: `ReportingSample`, anchor `#reporting`) → "What's included" `PillCloud` → `StatRow` → `FaqList` accordion → `NextUp` next service → CTA |
 | `/industries` | hero → 2×2 icon tiles (stat + name + tagline) → CTA |
 | `/industries/[slug]` | hero + OrbitMark → sticky "What we handle" + `TickRows` → `StatRow` → `NextUp` → CTA |
 | `/about` | hero → story as `LitText` → principles as title/one-line rows → operators line + `StatRow` → CTA |

@@ -80,7 +80,7 @@ export function VendorReports() {
         <div>
           <p className="text-[19px] font-medium text-[var(--fg)] [text-wrap:balance] sm:text-[21px]">Ecom Orbit reports it. Every month, every channel.</p>
         </div>
-        <Link href="/services/end-to-end" className="link-more shrink-0">
+        <Link href="/services/end-to-end#reporting" className="link-more shrink-0">
           How we report
         </Link>
       </motion.div>

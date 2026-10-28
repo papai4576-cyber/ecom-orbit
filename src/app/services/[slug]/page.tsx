@@ -8,6 +8,7 @@ import { OrbitMark } from "@/components/page/orbit-mark";
 import { serviceIcons } from "@/components/page/icons";
 import { PainList, PillCloud } from "@/components/page/blocks";
 import { FaqList, StatRow, NextUp } from "@/components/page/static-blocks";
+import { ReportingSample } from "@/components/page/reporting-sample";
 import { LitText } from "@/components/motion/lit-text";
 import { Reveal } from "@/components/motion/reveal";
 import { services, getServiceBySlug } from "@/data/services";
@@ -65,6 +66,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <LitText text={service.approach} className="mt-6 max-w-[38ch] text-[clamp(23px,3.1vw,40px)]" />
         </div>
       </section>
+
+      {/* End-to-End only: how the single monthly report works (the Statement section links here) */}
+      {service.slug === "end-to-end" && <ReportingSample />}
 
       {/* What's included, as a cloud of pills */}
       <section className="section tone-dark">

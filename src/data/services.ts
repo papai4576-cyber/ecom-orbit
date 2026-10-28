@@ -318,7 +318,7 @@ export const services: Service[] = [
       "You, personally, as the only person who sees the whole picture",
     ],
     approach:
-      "Everything under this plan runs through one WhatsApp thread and one monthly report — store, ads, SEO, marketplaces, quick commerce, and logistics, tracked against a single revenue number instead of five disconnected dashboards.",
+      "Everything under this plan runs through one WhatsApp thread and one monthly report — store, ads, SEO, marketplaces, quick commerce, and logistics, tracked against your revenue and contribution margin instead of five disconnected dashboards.",
     deliverables: [
       "All 7 channels under one team",
       "Single monthly report tied to revenue",
